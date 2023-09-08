@@ -1,0 +1,22 @@
+Thực thể nhân viên(manv(dùng để đăng nhập), tên, diachi, sdt, phanquyen, matkhau)
+Thực thể khách hàng(makh, tên kh, sdt)
+Thực thể loại khách hàng(maloai, #makh, ten, giamgia)
+Thực thể hàng hoá(mahh, tenhh, #maloai, soluong, donvitinh, gia, #mancc)
+Thực thể loại hh (malhh, tenlhh, mota)
+Thực thể nhà cung cấp(mancc, ten, diachi, sdt)
+Thực thể hoá đơn(mahd, ngayHD, tien, giamGia, #makh)
+Thực thể chi tiết hoá đơn (machitiet, #makh, #mahd, #mahh, #manv, soluong)
+
+Chức năng:
+ADMIN:
+- Thêm, sửa, xoá, tìm kiếm
+- Quản lý nhân viên
+- Quản lý khách hàng
+- Quản lý sản phẩm hàng hoá
+- Quản lý nhà cung cấp
+- Xem phản hồi sự cố của nhân viên
+- Xem báo cáo tuần, tháng, quý(doanh thu)
+NHÂN VIÊN:
+- Tạo hoá đơn
+- Thêm khách hàng
+- Báo cáo ngày(Sự cố viết comment)

@@ -6,6 +6,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+    @{var user = Session["User"] as Doan.Models.User;}
+    <title>About</title>
     <!-- basic -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -65,9 +67,22 @@
                     <form class="form-inline my-2 my-lg-0">
                         <div class="login_bt">
                             <ul>
-                                <li><a href="~/Index/Login"><span class="user_icon"><i class="fa fa-user" aria-hidden="true"></i></span>Login</a></li>
-                                <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
-                            </ul>
+                                <li>
+                                    @if (user == null)
+                                    {
+                                    <li>
+                                        @Html.ActionLink("Login", "Login", "Index")
+                                    </li>
+                                }
+                                else
+                                {
+                                    <a href="#" , style="color:black">Xin chao: @user.TenUser</a>
+                                    @Html.ActionLink("Đăng Xuất", "SignOut", "Index")
+                                }
+                                    </li>
+                                    <
+                                    <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
+                                </ul>
                         </div>
                     </form>
                 </div>

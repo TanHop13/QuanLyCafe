@@ -1,0 +1,168 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <!-- basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <!-- site metas -->
+    <title>Doze Cafe</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- bootstrap css -->
+    <link rel="stylesheet" type="text/css" href="~/Web/html/css/bootstrap.min.css">
+    <!-- style css -->
+    <link rel="stylesheet" type="text/css" href="~/Web/html/css/style.css">
+    <!-- Responsive-->
+    <link rel="stylesheet" href="~/Web/html/css/responsive.css">
+    <!-- fevicon -->
+    <link rel="icon" href="~/Web/html/images/fevicon.png" type="image/gif" />
+    <!-- font css -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="~/Web/html/css/jquery.mCustomScrollbar.min.css">
+    <!-- Tweaks for older IEs-->
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+</head>
+<body>
+    @{var user = Session["User"] as Doan.Models.User;}
+    <div class="header_section">
+        <div class="container-fluid">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href="index.html"><img src="~/Web/html/images/logo.png"></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="~/Index/Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="~/Index/About">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="~/Index/Coffee">Coffees</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="~/Index/Shop">Shop</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="~/Index/Blog">Blog</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="~/Index/Contact">Contact</a>
+                        </li>
+                       
+                        </ul>
+                    <form class="form-inline my-2 my-lg-0">
+                        <div class="login_bt">
+                            <ul>
+                                <li>
+                                    @if (user == null)
+                                    {
+                                    <li>
+                                        @Html.ActionLink("Đăng Nhập", "Login", "Index")
+                                    </li>
+                                }
+                                else
+                                {
+                                    <a href="#" , style="color:black">Xin chao: @user.TenUser</a>
+                                    @Html.ActionLink("Đăng Xuất", "SignOut", "Index")
+                                }
+                                    </li>
+                                    <
+                                    <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
+                                </ul>
+                        </div>
+                    </form>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- banner section start -->
+    <div class="banner_section layout_padding">
+        <div class="container">
+            <div id="banner_slider" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="banner_img"><img src="~/Web/html/images/banner-img.png"></div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="banner_taital_main">
+                                    <h1 class="banner_taital">coffee</h1>
+                                    <h5 class="tasty_text">Tasty Of DozeCafe</h5>
+                                    <p class="banner_text">more-or-less normal distribution of letters, as opposed to using </p>
+                                    <div class="btn_main">
+                                        <div class="about_bt"><a href="#">About Us</a></div>
+                                        <div class="callnow_bt active"><a href="#">Call Now</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="banner_img"><img src="~/Web/html/images/banner-img.png"></div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="banner_taital_main">
+                                    <h1 class="banner_taital">coffee</h1>
+                                    <h5 class="tasty_text">Tasty Of DozeCafe</h5>
+                                    <p class="banner_text">more-or-less normal distribution of letters, as opposed to using </p>
+                                    <div class="btn_main">
+                                        <div class="about_bt"><a href="#">About Us</a></div>
+                                        <div class="callnow_bt active"><a href="#">Call Now</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="banner_img"><img src="~/Web/html/images/banner-img.png"></div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="banner_taital_main">
+                                    <h1 class="banner_taital">coffee</h1>
+                                    <h5 class="tasty_text">Tasty Of DozeCafe</h5>
+                                    <p class="banner_text">more-or-less normal distribution of letters, as opposed to using </p>
+                                    <div class="btn_main">
+                                        <div class="about_bt"><a href="#">About Us</a></div>
+                                        <div class="callnow_bt active"><a href="#">Call Now</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#banner_slider" role="button" data-slide="prev">
+                    <i class="fa fa-arrow-left"></i>
+                </a>
+                <a class="carousel-control-next" href="#banner_slider" role="button" data-slide="next">
+                    <i class="fa fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    @RenderBody()
+    <!-- copyright section end -->
+    <!-- Javascript files-->
+    <script src="~/Web/html/js/jquery.min.js"></script>
+    <script src="~/Web/html/js/popper.min.js"></script>
+    <script src="~/Web/html/js/bootstrap.bundle.min.js"></script>
+    <script src="~/Web/html/js/jquery-3.0.0.min.js"></script>
+    <script src="~/Web/html/js/plugin.js"></script>
+    <!-- sidebar -->
+    <script src="~/Web/html/js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="~/Web/html/js/custom.js"></script>
+</body>
+</html>

@@ -177,6 +177,7 @@
     <Content Include="Views\Index\Blog.cshtml" />
     <Content Include="Views\Index\Coffee.cshtml" />
     <Content Include="Views\Index\Contact.cshtml" />
+    <Content Include="Views\Index\Login.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

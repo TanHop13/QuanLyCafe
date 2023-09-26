@@ -29,6 +29,9 @@ namespace Doan.Models
         [StringLength(10)]
         public string MaLDD { get; set; }
 
+        [StringLength(50)]
+        public string HinhDD { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ChiTietHoaDon> ChiTietHoaDons { get; set; }
 

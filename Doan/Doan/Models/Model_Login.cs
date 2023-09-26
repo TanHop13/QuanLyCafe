@@ -5,10 +5,10 @@ using System.Linq;
 
 namespace Doan.Models
 {
-    public partial class Login_Model : DbContext
+    public partial class Model_Login : DbContext
     {
-        public Login_Model()
-            : base("name=Login_Model1")
+        public Model_Login()
+            : base("name=Model_Login")
         {
         }
 

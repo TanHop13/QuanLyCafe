@@ -4,16 +4,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Xml.Serialization.Configuration;
+using System.Data.Entity;
 
 namespace Doan.Controllers
 {
     public class IndexController : Controller
     {
-        Login_Model db = new Login_Model();
+        Model_Login db = new Model_Login();
         // GET: Index
         public ActionResult Index()
         {
-            return View();
+           return View();
         }
         public ActionResult About()
         {
@@ -23,8 +25,13 @@ namespace Doan.Controllers
         {
             return View();
         }
-        public ActionResult Coffee()
+        public ActionResult Coffee(string Searching = "")
         {
+            if (Searching != "")
+            {
+                var sp = db.DoDungs.Include(s => s.MaDD).Where(x => x.TenDD.ToUpper().Contains(Searching.ToUpper()));
+                return View(sp.ToList());
+            }
             return View();
         }
         public ActionResult Contact()

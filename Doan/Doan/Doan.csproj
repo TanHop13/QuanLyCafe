@@ -14,7 +14,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Doan</RootNamespace>
     <AssemblyName>Doan</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8.1</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
     <IISExpressSSLPort>44312</IISExpressSSLPort>
@@ -97,6 +97,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="image\7up.jpg" />
+    <Content Include="image\BanhCom.jpg" />
+    <Content Include="image\BanhDauXanh.jpg" />
+    <Content Include="image\Bimbim.jpg" />
+    <Content Include="image\C2.jpg" />
+    <Content Include="image\CafeDen.jpg" />
+    <Content Include="image\CafeSua.jpg" />
+    <Content Include="image\CocaCola.jpg" />
+    <Content Include="image\NuocDua.png" />
+    <Content Include="image\NuocEpXoai.jpg" />
+    <Content Include="image\SuaNuti.png" />
     <Content Include="Web\html\css\animate.min.css" />
     <Content Include="Web\html\css\bootstrap-grid.css" />
     <Content Include="Web\html\css\bootstrap-grid.min.css" />
@@ -160,6 +171,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\DoDungsController.cs" />
     <Compile Include="Controllers\IndexController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -171,10 +183,11 @@
     <Compile Include="Models\HangHoa.cs" />
     <Compile Include="Models\HH_NCC.cs" />
     <Compile Include="Models\HoaDon.cs" />
+    <Compile Include="Models\ImageHelper.cs" />
     <Compile Include="Models\KhachHang.cs" />
     <Compile Include="Models\LoaiDoDung.cs" />
     <Compile Include="Models\LoaiKhachHang.cs" />
-    <Compile Include="Models\Login_Model.cs" />
+    <Compile Include="Models\Model_Login.cs" />
     <Compile Include="Models\NhaCungCap.cs" />
     <Compile Include="Models\PhanHoiSuCo.cs" />
     <Compile Include="Models\User.cs" />
@@ -204,6 +217,12 @@
     <Content Include="Views\Index\SignUp.cshtml" />
     <Content Include="Views\Shared\Layout.cshtml" />
     <Content Include="Views\Index\Login.cshtml" />
+    <Content Include="Views\DoDungs\Create.cshtml" />
+    <Content Include="Views\DoDungs\Delete.cshtml" />
+    <Content Include="Views\DoDungs\Details.cshtml" />
+    <Content Include="Views\DoDungs\Edit.cshtml" />
+    <Content Include="Views\DoDungs\Index.cshtml" />
+    <Content Include="Views\Shared\LayOut_Coffee.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

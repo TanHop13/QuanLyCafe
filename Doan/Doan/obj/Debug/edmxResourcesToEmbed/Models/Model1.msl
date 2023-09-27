@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="QuanLyCafeModelStoreContainer" CdmEntityContainer="QuanLyCafeEntities">
+    <EntitySetMapping Name="CaLamViecs">
+      <EntityTypeMapping TypeName="QuanLyCafeModel.CaLamViec">
+        <MappingFragment StoreEntitySet="CaLamViec">
+          <ScalarProperty Name="MaCLV" ColumnName="MaCLV" />
+          <ScalarProperty Name="CaLamViec1" ColumnName="CaLamViec" />
+          <ScalarProperty Name="GioBD" ColumnName="GioBD" />
+          <ScalarProperty Name="GioKT" ColumnName="GioKT" />
+          <ScalarProperty Name="MaUser" ColumnName="MaUser" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ChiTietHoaDons">
+      <EntityTypeMapping TypeName="QuanLyCafeModel.ChiTietHoaDon">
+        <MappingFragment StoreEntitySet="ChiTietHoaDon">
+          <ScalarProperty Name="MaChiTiet" ColumnName="MaChiTiet" />
+          <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
+          <ScalarProperty Name="MaDD" ColumnName="MaDD" />
+          <ScalarProperty Name="MaHD" ColumnName="MaHD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DD_HH">
+      <EntityTypeMapping TypeName="QuanLyCafeModel.DD_HH">
+        <MappingFragment StoreEntitySet="DD_HH">
+          <ScalarProperty Name="MaHH" ColumnName="MaHH" />
+          <ScalarProperty Name="MaDD" ColumnName="MaDD" />
+          <ScalarProperty Name="MaHH_DD" ColumnName="MaHH_DD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DoDungs">
+      <EntityTypeMapping TypeName="QuanLyCafeModel.DoDung">
+        <MappingFragment StoreEntitySet="DoDung">
+          <ScalarProperty Name="MaDD" ColumnName="MaDD" />
+          <ScalarProperty Name="TenDD" ColumnName="TenDD" />
+          <ScalarProperty Name="Gia" ColumnName="Gia" />
+          <ScalarProperty Name="MaLDD" ColumnName="MaLDD" />
+          <ScalarProperty Name="HinhDD" ColumnName="HinhDD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HangHoas">
+      <EntityTypeMapping TypeName="QuanLyCafeModel.HangHoa">
+        <MappingFragment StoreEntitySet="HangHoa">
+          <ScalarProperty Name="MaHH" ColumnName="MaHH" />
+          <ScalarProperty Name="TenHH" ColumnName="TenHH" />
+          <ScalarProperty Name="Gia" ColumnName="Gia" />
+          <ScalarProperty Name="DonViTinh" ColumnName="DonViTinh" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HH_NCC">
+      <EntityTypeMapping TypeName="QuanLyCafeModel.HH_NCC">
+        <MappingFragment StoreEntitySet="HH_NCC">
+          <ScalarProperty Name="MaHH" ColumnName="MaHH" />
+          <ScalarProperty Name="MaNCC" ColumnName="MaNCC" />
+          <ScalarProperty Name="MaHH_NCC" ColumnName="MaHH_NCC" />
+          <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HoaDons">
+      <EntityTypeMapping TypeName="QuanLyCafeModel.HoaDon">
+        <MappingFragment StoreEntitySet="HoaDon">
+          <ScalarProperty Name="MaHD" ColumnName="MaHD" />
+          <ScalarProperty Name="NgayTaoHD" ColumnName="NgayTaoHD" />
+          <ScalarProperty Name="TongTien" ColumnName="TongTien" />
+          <ScalarProperty Name="MaKH" ColumnName="MaKH" />
+          <ScalarProperty Name="MaUser" ColumnName="MaUser" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KhachHangs">
+      <EntityTypeMapping TypeName="QuanLyCafeModel.KhachHang">
+        <MappingFragment StoreEntitySet="KhachHang">
+          <ScalarProperty Name="MaKH" ColumnName="MaKH" />
+          <ScalarProperty Name="TenKH" ColumnName="TenKH" />
+          <ScalarProperty Name="SDT" ColumnName="SDT" />
+          <ScalarProperty Name="MaLoaiKH" ColumnName="MaLoaiKH" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LoaiDoDungs">
+      <EntityTypeMapping TypeName="QuanLyCafeModel.LoaiDoDung">
+        <MappingFragment StoreEntitySet="LoaiDoDung">
+          <ScalarProperty Name="MaLoaiDD" ColumnName="MaLoaiDD" />
+          <ScalarProperty Name="TenLoai" ColumnName="TenLoai" />
+          <ScalarProperty Name="MoTa" ColumnName="MoTa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LoaiKhachHangs">
+      <EntityTypeMapping TypeName="QuanLyCafeModel.LoaiKhachHang">
+        <MappingFragment StoreEntitySet="LoaiKhachHang">
+          <ScalarProperty Name="MaLoaiKH" ColumnName="MaLoaiKH" />
+          <ScalarProperty Name="TenLoai" ColumnName="TenLoai" />
+          <ScalarProperty Name="GiamGia" ColumnName="GiamGia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NhaCungCaps">
+      <EntityTypeMapping TypeName="QuanLyCafeModel.NhaCungCap">
+        <MappingFragment StoreEntitySet="NhaCungCap">
+          <ScalarProperty Name="MaNCC" ColumnName="MaNCC" />
+          <ScalarProperty Name="TenNCC" ColumnName="TenNCC" />
+          <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+          <ScalarProperty Name="SDT" ColumnName="SDT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PhanHoiSuCoes">
+      <EntityTypeMapping TypeName="QuanLyCafeModel.PhanHoiSuCo">
+        <MappingFragment StoreEntitySet="PhanHoiSuCo">
+          <ScalarProperty Name="MaPH" ColumnName="MaPH" />
+          <ScalarProperty Name="MoTa" ColumnName="MoTa" />
+          <ScalarProperty Name="MaUser" ColumnName="MaUser" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="QuanLyCafeModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="MaUser" ColumnName="MaUser" />
+          <ScalarProperty Name="TenUser" ColumnName="TenUser" />
+          <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+          <ScalarProperty Name="SDT" ColumnName="SDT" />
+          <ScalarProperty Name="PhanQuyen" ColumnName="PhanQuyen" />
+          <ScalarProperty Name="MatKhau" ColumnName="MatKhau" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

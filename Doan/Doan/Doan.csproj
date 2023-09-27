@@ -14,7 +14,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Doan</RootNamespace>
     <AssemblyName>Doan</AssemblyName>
-    <TargetFrameworkVersion>v4.8.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
     <IISExpressSSLPort>44312</IISExpressSSLPort>
@@ -171,8 +171,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CaLamViecsController.cs" />
+    <Compile Include="Controllers\ChiTietHoaDonsController.cs" />
     <Compile Include="Controllers\DoDungsController.cs" />
+    <Compile Include="Controllers\HangHoasController.cs" />
+    <Compile Include="Controllers\HoaDonsController.cs" />
     <Compile Include="Controllers\IndexController.cs" />
+    <Compile Include="Controllers\KhachHangsController.cs" />
+    <Compile Include="Controllers\LoaiDoDungsController.cs" />
+    <Compile Include="Controllers\NhaCungCapsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -223,6 +230,36 @@
     <Content Include="Views\DoDungs\Edit.cshtml" />
     <Content Include="Views\DoDungs\Index.cshtml" />
     <Content Include="Views\Shared\LayOut_Coffee.cshtml" />
+    <Content Include="Views\ChiTietHoaDons\Create.cshtml" />
+    <Content Include="Views\ChiTietHoaDons\Delete.cshtml" />
+    <Content Include="Views\ChiTietHoaDons\Details.cshtml" />
+    <Content Include="Views\ChiTietHoaDons\Edit.cshtml" />
+    <Content Include="Views\ChiTietHoaDons\Index.cshtml" />
+    <Content Include="Views\HangHoas\Create.cshtml" />
+    <Content Include="Views\HangHoas\Delete.cshtml" />
+    <Content Include="Views\HangHoas\Details.cshtml" />
+    <Content Include="Views\HangHoas\Edit.cshtml" />
+    <Content Include="Views\HangHoas\Index.cshtml" />
+    <Content Include="Views\HoaDons\Create.cshtml" />
+    <Content Include="Views\HoaDons\Delete.cshtml" />
+    <Content Include="Views\HoaDons\Details.cshtml" />
+    <Content Include="Views\HoaDons\Edit.cshtml" />
+    <Content Include="Views\HoaDons\Index.cshtml" />
+    <Content Include="Views\KhachHangs\Create.cshtml" />
+    <Content Include="Views\KhachHangs\Delete.cshtml" />
+    <Content Include="Views\KhachHangs\Details.cshtml" />
+    <Content Include="Views\KhachHangs\Edit.cshtml" />
+    <Content Include="Views\KhachHangs\Index.cshtml" />
+    <Content Include="Views\LoaiDoDungs\Create.cshtml" />
+    <Content Include="Views\LoaiDoDungs\Delete.cshtml" />
+    <Content Include="Views\LoaiDoDungs\Details.cshtml" />
+    <Content Include="Views\LoaiDoDungs\Edit.cshtml" />
+    <Content Include="Views\LoaiDoDungs\Index.cshtml" />
+    <Content Include="Views\NhaCungCaps\Create.cshtml" />
+    <Content Include="Views\NhaCungCaps\Delete.cshtml" />
+    <Content Include="Views\NhaCungCaps\Details.cshtml" />
+    <Content Include="Views\NhaCungCaps\Edit.cshtml" />
+    <Content Include="Views\NhaCungCaps\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -232,6 +269,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

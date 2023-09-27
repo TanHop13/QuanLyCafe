@@ -10,112 +10,112 @@ using Doan.Models;
 
 namespace Doan.Controllers
 {
-    public class DoDungsController : Controller
+    public class CaLamViecsController : Controller
     {
-       private Model_Login db = new Model_Login();
+        private Model_Login db = new Model_Login();
 
-        // GET: DoDungs
+        // GET: CaLamViecs
         public ActionResult Index()
         {
-            var doDungs = db.DoDungs.Include(d => d.LoaiDoDung);
-            return View(doDungs.ToList());
+            var caLamViecs = db.CaLamViecs.Include(c => c.User);
+            return View(caLamViecs.ToList());
         }
 
-        // GET: DoDungs/Details/5
+        // GET: CaLamViecs/Details/5
         public ActionResult Details(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            DoDung doDung = db.DoDungs.Find(id);
-            if (doDung == null)
+            CaLamViec caLamViec = db.CaLamViecs.Find(id);
+            if (caLamViec == null)
             {
                 return HttpNotFound();
             }
-            return View(doDung);
+            return View(caLamViec);
         }
 
-        // GET: DoDungs/Create
+        // GET: CaLamViecs/Create
         public ActionResult Create()
         {
-            ViewBag.MaLDD = new SelectList(db.LoaiDoDungs, "MaLoaiDD", "TenLoai");
+            ViewBag.MaUser = new SelectList(db.Users, "MaUser", "TenUser");
             return View();
         }
 
-        // POST: DoDungs/Create
+        // POST: CaLamViecs/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MaDD,TenDD,Gia,MaLDD,HinhDD")] DoDung doDung)
+        public ActionResult Create([Bind(Include = "MaCLV,CaLamViec1,GioBD,GioKT,MaUser")] CaLamViec caLamViec)
         {
             if (ModelState.IsValid)
             {
-                db.DoDungs.Add(doDung);
+                db.CaLamViecs.Add(caLamViec);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.MaLDD = new SelectList(db.LoaiDoDungs, "MaLoaiDD", "TenLoai", doDung.MaLDD);
-            return View(doDung);
+            ViewBag.MaUser = new SelectList(db.Users, "MaUser", "TenUser", caLamViec.MaUser);
+            return View(caLamViec);
         }
 
-        // GET: DoDungs/Edit/5
+        // GET: CaLamViecs/Edit/5
         public ActionResult Edit(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            DoDung doDung = db.DoDungs.Find(id);
-            if (doDung == null)
+            CaLamViec caLamViec = db.CaLamViecs.Find(id);
+            if (caLamViec == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.MaLDD = new SelectList(db.LoaiDoDungs, "MaLoaiDD", "TenLoai", doDung.MaLDD);
-            return View(doDung);
+            ViewBag.MaUser = new SelectList(db.Users, "MaUser", "TenUser", caLamViec.MaUser);
+            return View(caLamViec);
         }
 
-        // POST: DoDungs/Edit/5
+        // POST: CaLamViecs/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "MaDD,TenDD,Gia,MaLDD,HinhDD")] DoDung doDung)
+        public ActionResult Edit([Bind(Include = "MaCLV,CaLamViec1,GioBD,GioKT,MaUser")] CaLamViec caLamViec)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(doDung).State = EntityState.Modified;
+                db.Entry(caLamViec).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.MaLDD = new SelectList(db.LoaiDoDungs, "MaLoaiDD", "TenLoai", doDung.MaLDD);
-            return View(doDung);
+            ViewBag.MaUser = new SelectList(db.Users, "MaUser", "TenUser", caLamViec.MaUser);
+            return View(caLamViec);
         }
 
-        // GET: DoDungs/Delete/5
+        // GET: CaLamViecs/Delete/5
         public ActionResult Delete(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            DoDung doDung = db.DoDungs.Find(id);
-            if (doDung == null)
+            CaLamViec caLamViec = db.CaLamViecs.Find(id);
+            if (caLamViec == null)
             {
                 return HttpNotFound();
             }
-            return View(doDung);
+            return View(caLamViec);
         }
 
-        // POST: DoDungs/Delete/5
+        // POST: CaLamViecs/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(string id)
         {
-            DoDung doDung = db.DoDungs.Find(id);
-            db.DoDungs.Remove(doDung);
+            CaLamViec caLamViec = db.CaLamViecs.Find(id);
+            db.CaLamViecs.Remove(caLamViec);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

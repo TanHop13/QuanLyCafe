@@ -7,6 +7,7 @@ using System.Web.Mvc;
 using System.Xml.Serialization.Configuration;
 using System.Data.Entity;
 
+
 namespace Doan.Controllers
 {
     public class IndexController : Controller

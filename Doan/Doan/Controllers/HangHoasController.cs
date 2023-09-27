@@ -10,112 +10,107 @@ using Doan.Models;
 
 namespace Doan.Controllers
 {
-    public class DoDungsController : Controller
+    public class HangHoasController : Controller
     {
-       private Model_Login db = new Model_Login();
+        private Model_Login db = new Model_Login();
 
-        // GET: DoDungs
+        // GET: HangHoas
         public ActionResult Index()
         {
-            var doDungs = db.DoDungs.Include(d => d.LoaiDoDung);
-            return View(doDungs.ToList());
+            return View(db.HangHoas.ToList());
         }
 
-        // GET: DoDungs/Details/5
+        // GET: HangHoas/Details/5
         public ActionResult Details(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            DoDung doDung = db.DoDungs.Find(id);
-            if (doDung == null)
+            HangHoa hangHoa = db.HangHoas.Find(id);
+            if (hangHoa == null)
             {
                 return HttpNotFound();
             }
-            return View(doDung);
+            return View(hangHoa);
         }
 
-        // GET: DoDungs/Create
+        // GET: HangHoas/Create
         public ActionResult Create()
         {
-            ViewBag.MaLDD = new SelectList(db.LoaiDoDungs, "MaLoaiDD", "TenLoai");
             return View();
         }
 
-        // POST: DoDungs/Create
+        // POST: HangHoas/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MaDD,TenDD,Gia,MaLDD,HinhDD")] DoDung doDung)
+        public ActionResult Create([Bind(Include = "MaHH,TenHH,Gia,DonViTinh")] HangHoa hangHoa)
         {
             if (ModelState.IsValid)
             {
-                db.DoDungs.Add(doDung);
+                db.HangHoas.Add(hangHoa);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.MaLDD = new SelectList(db.LoaiDoDungs, "MaLoaiDD", "TenLoai", doDung.MaLDD);
-            return View(doDung);
+            return View(hangHoa);
         }
 
-        // GET: DoDungs/Edit/5
+        // GET: HangHoas/Edit/5
         public ActionResult Edit(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            DoDung doDung = db.DoDungs.Find(id);
-            if (doDung == null)
+            HangHoa hangHoa = db.HangHoas.Find(id);
+            if (hangHoa == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.MaLDD = new SelectList(db.LoaiDoDungs, "MaLoaiDD", "TenLoai", doDung.MaLDD);
-            return View(doDung);
+            return View(hangHoa);
         }
 
-        // POST: DoDungs/Edit/5
+        // POST: HangHoas/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "MaDD,TenDD,Gia,MaLDD,HinhDD")] DoDung doDung)
+        public ActionResult Edit([Bind(Include = "MaHH,TenHH,Gia,DonViTinh")] HangHoa hangHoa)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(doDung).State = EntityState.Modified;
+                db.Entry(hangHoa).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.MaLDD = new SelectList(db.LoaiDoDungs, "MaLoaiDD", "TenLoai", doDung.MaLDD);
-            return View(doDung);
+            return View(hangHoa);
         }
 
-        // GET: DoDungs/Delete/5
+        // GET: HangHoas/Delete/5
         public ActionResult Delete(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            DoDung doDung = db.DoDungs.Find(id);
-            if (doDung == null)
+            HangHoa hangHoa = db.HangHoas.Find(id);
+            if (hangHoa == null)
             {
                 return HttpNotFound();
             }
-            return View(doDung);
+            return View(hangHoa);
         }
 
-        // POST: DoDungs/Delete/5
+        // POST: HangHoas/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(string id)
         {
-            DoDung doDung = db.DoDungs.Find(id);
-            db.DoDungs.Remove(doDung);
+            HangHoa hangHoa = db.HangHoas.Find(id);
+            db.HangHoas.Remove(hangHoa);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

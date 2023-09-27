@@ -10,112 +10,107 @@ using Doan.Models;
 
 namespace Doan.Controllers
 {
-    public class DoDungsController : Controller
+    public class NhaCungCapsController : Controller
     {
-       private Model_Login db = new Model_Login();
+        private Model_Login db = new Model_Login();
 
-        // GET: DoDungs
+        // GET: NhaCungCaps
         public ActionResult Index()
         {
-            var doDungs = db.DoDungs.Include(d => d.LoaiDoDung);
-            return View(doDungs.ToList());
+            return View(db.NhaCungCaps.ToList());
         }
 
-        // GET: DoDungs/Details/5
+        // GET: NhaCungCaps/Details/5
         public ActionResult Details(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            DoDung doDung = db.DoDungs.Find(id);
-            if (doDung == null)
+            NhaCungCap nhaCungCap = db.NhaCungCaps.Find(id);
+            if (nhaCungCap == null)
             {
                 return HttpNotFound();
             }
-            return View(doDung);
+            return View(nhaCungCap);
         }
 
-        // GET: DoDungs/Create
+        // GET: NhaCungCaps/Create
         public ActionResult Create()
         {
-            ViewBag.MaLDD = new SelectList(db.LoaiDoDungs, "MaLoaiDD", "TenLoai");
             return View();
         }
 
-        // POST: DoDungs/Create
+        // POST: NhaCungCaps/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MaDD,TenDD,Gia,MaLDD,HinhDD")] DoDung doDung)
+        public ActionResult Create([Bind(Include = "MaNCC,TenNCC,DiaChi,SDT")] NhaCungCap nhaCungCap)
         {
             if (ModelState.IsValid)
             {
-                db.DoDungs.Add(doDung);
+                db.NhaCungCaps.Add(nhaCungCap);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.MaLDD = new SelectList(db.LoaiDoDungs, "MaLoaiDD", "TenLoai", doDung.MaLDD);
-            return View(doDung);
+            return View(nhaCungCap);
         }
 
-        // GET: DoDungs/Edit/5
+        // GET: NhaCungCaps/Edit/5
         public ActionResult Edit(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            DoDung doDung = db.DoDungs.Find(id);
-            if (doDung == null)
+            NhaCungCap nhaCungCap = db.NhaCungCaps.Find(id);
+            if (nhaCungCap == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.MaLDD = new SelectList(db.LoaiDoDungs, "MaLoaiDD", "TenLoai", doDung.MaLDD);
-            return View(doDung);
+            return View(nhaCungCap);
         }
 
-        // POST: DoDungs/Edit/5
+        // POST: NhaCungCaps/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "MaDD,TenDD,Gia,MaLDD,HinhDD")] DoDung doDung)
+        public ActionResult Edit([Bind(Include = "MaNCC,TenNCC,DiaChi,SDT")] NhaCungCap nhaCungCap)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(doDung).State = EntityState.Modified;
+                db.Entry(nhaCungCap).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.MaLDD = new SelectList(db.LoaiDoDungs, "MaLoaiDD", "TenLoai", doDung.MaLDD);
-            return View(doDung);
+            return View(nhaCungCap);
         }
 
-        // GET: DoDungs/Delete/5
+        // GET: NhaCungCaps/Delete/5
         public ActionResult Delete(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            DoDung doDung = db.DoDungs.Find(id);
-            if (doDung == null)
+            NhaCungCap nhaCungCap = db.NhaCungCaps.Find(id);
+            if (nhaCungCap == null)
             {
                 return HttpNotFound();
             }
-            return View(doDung);
+            return View(nhaCungCap);
         }
 
-        // POST: DoDungs/Delete/5
+        // POST: NhaCungCaps/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(string id)
         {
-            DoDung doDung = db.DoDungs.Find(id);
-            db.DoDungs.Remove(doDung);
+            NhaCungCap nhaCungCap = db.NhaCungCaps.Find(id);
+            db.NhaCungCaps.Remove(nhaCungCap);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

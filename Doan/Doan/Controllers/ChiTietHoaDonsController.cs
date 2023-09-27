@@ -10,112 +10,116 @@ using Doan.Models;
 
 namespace Doan.Controllers
 {
-    public class DoDungsController : Controller
+    public class ChiTietHoaDonsController : Controller
     {
-       private Model_Login db = new Model_Login();
+        private Model_Login db = new Model_Login();
 
-        // GET: DoDungs
+        // GET: ChiTietHoaDons
         public ActionResult Index()
         {
-            var doDungs = db.DoDungs.Include(d => d.LoaiDoDung);
-            return View(doDungs.ToList());
+            var chiTietHoaDons = db.ChiTietHoaDons.Include(c => c.DoDung).Include(c => c.HoaDon);
+            return View(chiTietHoaDons.ToList());
         }
 
-        // GET: DoDungs/Details/5
+        // GET: ChiTietHoaDons/Details/5
         public ActionResult Details(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            DoDung doDung = db.DoDungs.Find(id);
-            if (doDung == null)
+            ChiTietHoaDon chiTietHoaDon = db.ChiTietHoaDons.Find(id);
+            if (chiTietHoaDon == null)
             {
                 return HttpNotFound();
             }
-            return View(doDung);
+            return View(chiTietHoaDon);
         }
 
-        // GET: DoDungs/Create
+        // GET: ChiTietHoaDons/Create
         public ActionResult Create()
         {
-            ViewBag.MaLDD = new SelectList(db.LoaiDoDungs, "MaLoaiDD", "TenLoai");
+            ViewBag.MaDD = new SelectList(db.DoDungs, "MaDD", "TenDD");
+            ViewBag.MaHD = new SelectList(db.HoaDons, "MaHD", "MaKH");
             return View();
         }
 
-        // POST: DoDungs/Create
+        // POST: ChiTietHoaDons/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MaDD,TenDD,Gia,MaLDD,HinhDD")] DoDung doDung)
+        public ActionResult Create([Bind(Include = "MaChiTiet,SoLuong,MaDD,MaHD")] ChiTietHoaDon chiTietHoaDon)
         {
             if (ModelState.IsValid)
             {
-                db.DoDungs.Add(doDung);
+                db.ChiTietHoaDons.Add(chiTietHoaDon);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.MaLDD = new SelectList(db.LoaiDoDungs, "MaLoaiDD", "TenLoai", doDung.MaLDD);
-            return View(doDung);
+            ViewBag.MaDD = new SelectList(db.DoDungs, "MaDD", "TenDD", chiTietHoaDon.MaDD);
+            ViewBag.MaHD = new SelectList(db.HoaDons, "MaHD", "MaKH", chiTietHoaDon.MaHD);
+            return View(chiTietHoaDon);
         }
 
-        // GET: DoDungs/Edit/5
+        // GET: ChiTietHoaDons/Edit/5
         public ActionResult Edit(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            DoDung doDung = db.DoDungs.Find(id);
-            if (doDung == null)
+            ChiTietHoaDon chiTietHoaDon = db.ChiTietHoaDons.Find(id);
+            if (chiTietHoaDon == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.MaLDD = new SelectList(db.LoaiDoDungs, "MaLoaiDD", "TenLoai", doDung.MaLDD);
-            return View(doDung);
+            ViewBag.MaDD = new SelectList(db.DoDungs, "MaDD", "TenDD", chiTietHoaDon.MaDD);
+            ViewBag.MaHD = new SelectList(db.HoaDons, "MaHD", "MaKH", chiTietHoaDon.MaHD);
+            return View(chiTietHoaDon);
         }
 
-        // POST: DoDungs/Edit/5
+        // POST: ChiTietHoaDons/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "MaDD,TenDD,Gia,MaLDD,HinhDD")] DoDung doDung)
+        public ActionResult Edit([Bind(Include = "MaChiTiet,SoLuong,MaDD,MaHD")] ChiTietHoaDon chiTietHoaDon)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(doDung).State = EntityState.Modified;
+                db.Entry(chiTietHoaDon).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.MaLDD = new SelectList(db.LoaiDoDungs, "MaLoaiDD", "TenLoai", doDung.MaLDD);
-            return View(doDung);
+            ViewBag.MaDD = new SelectList(db.DoDungs, "MaDD", "TenDD", chiTietHoaDon.MaDD);
+            ViewBag.MaHD = new SelectList(db.HoaDons, "MaHD", "MaKH", chiTietHoaDon.MaHD);
+            return View(chiTietHoaDon);
         }
 
-        // GET: DoDungs/Delete/5
+        // GET: ChiTietHoaDons/Delete/5
         public ActionResult Delete(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            DoDung doDung = db.DoDungs.Find(id);
-            if (doDung == null)
+            ChiTietHoaDon chiTietHoaDon = db.ChiTietHoaDons.Find(id);
+            if (chiTietHoaDon == null)
             {
                 return HttpNotFound();
             }
-            return View(doDung);
+            return View(chiTietHoaDon);
         }
 
-        // POST: DoDungs/Delete/5
+        // POST: ChiTietHoaDons/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(string id)
         {
-            DoDung doDung = db.DoDungs.Find(id);
-            db.DoDungs.Remove(doDung);
+            ChiTietHoaDon chiTietHoaDon = db.ChiTietHoaDons.Find(id);
+            db.ChiTietHoaDons.Remove(chiTietHoaDon);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

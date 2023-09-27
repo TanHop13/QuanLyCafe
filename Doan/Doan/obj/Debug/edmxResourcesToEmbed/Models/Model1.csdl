@@ -1,0 +1,356 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QuanLyCafeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="CaLamViec">
+    <Key>
+      <PropertyRef Name="MaCLV" />
+    </Key>
+    <Property Name="MaCLV" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CaLamViec1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="GioBD" Type="Time" Precision="7" />
+    <Property Name="GioKT" Type="Time" Precision="7" />
+    <Property Name="MaUser" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="User" Relationship="Self.FK_CaLamViec_User" FromRole="CaLamViec" ToRole="User" />
+  </EntityType>
+  <EntityType Name="ChiTietHoaDon">
+    <Key>
+      <PropertyRef Name="MaChiTiet" />
+    </Key>
+    <Property Name="MaChiTiet" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SoLuong" Type="Int32" />
+    <Property Name="MaDD" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="MaHD" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="DoDung" Relationship="Self.FK_ChiTietHoaDon_DoDung" FromRole="ChiTietHoaDon" ToRole="DoDung" />
+    <NavigationProperty Name="HoaDon" Relationship="Self.FK_ChiTietHoaDon_HoaDon" FromRole="ChiTietHoaDon" ToRole="HoaDon" />
+  </EntityType>
+  <EntityType Name="DD_HH">
+    <Key>
+      <PropertyRef Name="MaHH" />
+      <PropertyRef Name="MaDD" />
+      <PropertyRef Name="MaHH_DD" />
+    </Key>
+    <Property Name="MaHH" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MaDD" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MaHH_DD" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="DoDung" Relationship="Self.FK_DD_HH_DoDung" FromRole="DD_HH" ToRole="DoDung" />
+    <NavigationProperty Name="HangHoa" Relationship="Self.FK_DD_HH_HangHoa" FromRole="DD_HH" ToRole="HangHoa" />
+  </EntityType>
+  <EntityType Name="DoDung">
+    <Key>
+      <PropertyRef Name="MaDD" />
+    </Key>
+    <Property Name="MaDD" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TenDD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Gia" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="MaLDD" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="HinhDD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ChiTietHoaDons" Relationship="Self.FK_ChiTietHoaDon_DoDung" FromRole="DoDung" ToRole="ChiTietHoaDon" />
+    <NavigationProperty Name="DD_HH" Relationship="Self.FK_DD_HH_DoDung" FromRole="DoDung" ToRole="DD_HH" />
+    <NavigationProperty Name="LoaiDoDung" Relationship="Self.FK_DoDung_LoaiDoDung" FromRole="DoDung" ToRole="LoaiDoDung" />
+  </EntityType>
+  <EntityType Name="HangHoa">
+    <Key>
+      <PropertyRef Name="MaHH" />
+    </Key>
+    <Property Name="MaHH" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TenHH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Gia" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="DonViTinh" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="DD_HH" Relationship="Self.FK_DD_HH_HangHoa" FromRole="HangHoa" ToRole="DD_HH" />
+    <NavigationProperty Name="HH_NCC" Relationship="Self.FK_HH_NCC_HangHoa" FromRole="HangHoa" ToRole="HH_NCC" />
+  </EntityType>
+  <EntityType Name="HH_NCC">
+    <Key>
+      <PropertyRef Name="MaHH" />
+      <PropertyRef Name="MaNCC" />
+      <PropertyRef Name="MaHH_NCC" />
+    </Key>
+    <Property Name="MaHH" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MaNCC" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MaHH_NCC" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SoLuong" Type="Int32" />
+    <NavigationProperty Name="HangHoa" Relationship="Self.FK_HH_NCC_HangHoa" FromRole="HH_NCC" ToRole="HangHoa" />
+    <NavigationProperty Name="NhaCungCap" Relationship="Self.FK_HH_NCC_NhaCungCap" FromRole="HH_NCC" ToRole="NhaCungCap" />
+  </EntityType>
+  <EntityType Name="HoaDon">
+    <Key>
+      <PropertyRef Name="MaHD" />
+    </Key>
+    <Property Name="MaHD" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="NgayTaoHD" Type="DateTime" Precision="0" />
+    <Property Name="TongTien" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="MaKH" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="MaUser" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ChiTietHoaDons" Relationship="Self.FK_ChiTietHoaDon_HoaDon" FromRole="HoaDon" ToRole="ChiTietHoaDon" />
+    <NavigationProperty Name="KhachHang" Relationship="Self.FK_HoaDon_KhachHang" FromRole="HoaDon" ToRole="KhachHang" />
+    <NavigationProperty Name="User" Relationship="Self.FK_HoaDon_User" FromRole="HoaDon" ToRole="User" />
+  </EntityType>
+  <EntityType Name="KhachHang">
+    <Key>
+      <PropertyRef Name="MaKH" />
+    </Key>
+    <Property Name="MaKH" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TenKH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SDT" Type="String" MaxLength="15" FixedLength="true" Unicode="false" />
+    <Property Name="MaLoaiKH" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="HoaDons" Relationship="Self.FK_HoaDon_KhachHang" FromRole="KhachHang" ToRole="HoaDon" />
+    <NavigationProperty Name="LoaiKhachHang" Relationship="Self.FK_KhachHang_LoaiKhachHang" FromRole="KhachHang" ToRole="LoaiKhachHang" />
+  </EntityType>
+  <EntityType Name="LoaiDoDung">
+    <Key>
+      <PropertyRef Name="MaLoaiDD" />
+    </Key>
+    <Property Name="MaLoaiDD" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TenLoai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MoTa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="DoDungs" Relationship="Self.FK_DoDung_LoaiDoDung" FromRole="LoaiDoDung" ToRole="DoDung" />
+  </EntityType>
+  <EntityType Name="LoaiKhachHang">
+    <Key>
+      <PropertyRef Name="MaLoaiKH" />
+    </Key>
+    <Property Name="MaLoaiKH" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TenLoai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="GiamGia" Type="Double" />
+    <NavigationProperty Name="KhachHangs" Relationship="Self.FK_KhachHang_LoaiKhachHang" FromRole="LoaiKhachHang" ToRole="KhachHang" />
+  </EntityType>
+  <EntityType Name="NhaCungCap">
+    <Key>
+      <PropertyRef Name="MaNCC" />
+    </Key>
+    <Property Name="MaNCC" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TenNCC" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="DiaChi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="SDT" Type="String" MaxLength="15" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="HH_NCC" Relationship="Self.FK_HH_NCC_NhaCungCap" FromRole="NhaCungCap" ToRole="HH_NCC" />
+  </EntityType>
+  <EntityType Name="PhanHoiSuCo">
+    <Key>
+      <PropertyRef Name="MaPH" />
+    </Key>
+    <Property Name="MaPH" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MoTa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MaUser" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="User" Relationship="Self.FK_PhanHoiSuCo_User" FromRole="PhanHoiSuCo" ToRole="User" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="MaUser" />
+    </Key>
+    <Property Name="MaUser" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TenUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DiaChi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SDT" Type="String" MaxLength="15" FixedLength="true" Unicode="false" />
+    <Property Name="PhanQuyen" Type="Boolean" />
+    <Property Name="MatKhau" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="CaLamViecs" Relationship="Self.FK_CaLamViec_User" FromRole="User" ToRole="CaLamViec" />
+    <NavigationProperty Name="HoaDons" Relationship="Self.FK_HoaDon_User" FromRole="User" ToRole="HoaDon" />
+    <NavigationProperty Name="PhanHoiSuCoes" Relationship="Self.FK_PhanHoiSuCo_User" FromRole="User" ToRole="PhanHoiSuCo" />
+  </EntityType>
+  <Association Name="FK_CaLamViec_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="CaLamViec" Type="Self.CaLamViec" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="MaUser" />
+      </Principal>
+      <Dependent Role="CaLamViec">
+        <PropertyRef Name="MaUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ChiTietHoaDon_DoDung">
+    <End Role="DoDung" Type="Self.DoDung" Multiplicity="0..1" />
+    <End Role="ChiTietHoaDon" Type="Self.ChiTietHoaDon" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DoDung">
+        <PropertyRef Name="MaDD" />
+      </Principal>
+      <Dependent Role="ChiTietHoaDon">
+        <PropertyRef Name="MaDD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ChiTietHoaDon_HoaDon">
+    <End Role="HoaDon" Type="Self.HoaDon" Multiplicity="0..1" />
+    <End Role="ChiTietHoaDon" Type="Self.ChiTietHoaDon" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HoaDon">
+        <PropertyRef Name="MaHD" />
+      </Principal>
+      <Dependent Role="ChiTietHoaDon">
+        <PropertyRef Name="MaHD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DD_HH_DoDung">
+    <End Role="DoDung" Type="Self.DoDung" Multiplicity="1" />
+    <End Role="DD_HH" Type="Self.DD_HH" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DoDung">
+        <PropertyRef Name="MaDD" />
+      </Principal>
+      <Dependent Role="DD_HH">
+        <PropertyRef Name="MaDD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DD_HH_HangHoa">
+    <End Role="HangHoa" Type="Self.HangHoa" Multiplicity="1" />
+    <End Role="DD_HH" Type="Self.DD_HH" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HangHoa">
+        <PropertyRef Name="MaHH" />
+      </Principal>
+      <Dependent Role="DD_HH">
+        <PropertyRef Name="MaHH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DoDung_LoaiDoDung">
+    <End Role="LoaiDoDung" Type="Self.LoaiDoDung" Multiplicity="0..1" />
+    <End Role="DoDung" Type="Self.DoDung" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LoaiDoDung">
+        <PropertyRef Name="MaLoaiDD" />
+      </Principal>
+      <Dependent Role="DoDung">
+        <PropertyRef Name="MaLDD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HH_NCC_HangHoa">
+    <End Role="HangHoa" Type="Self.HangHoa" Multiplicity="1" />
+    <End Role="HH_NCC" Type="Self.HH_NCC" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HangHoa">
+        <PropertyRef Name="MaHH" />
+      </Principal>
+      <Dependent Role="HH_NCC">
+        <PropertyRef Name="MaHH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HH_NCC_NhaCungCap">
+    <End Role="NhaCungCap" Type="Self.NhaCungCap" Multiplicity="1" />
+    <End Role="HH_NCC" Type="Self.HH_NCC" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NhaCungCap">
+        <PropertyRef Name="MaNCC" />
+      </Principal>
+      <Dependent Role="HH_NCC">
+        <PropertyRef Name="MaNCC" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HoaDon_KhachHang">
+    <End Role="KhachHang" Type="Self.KhachHang" Multiplicity="0..1" />
+    <End Role="HoaDon" Type="Self.HoaDon" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KhachHang">
+        <PropertyRef Name="MaKH" />
+      </Principal>
+      <Dependent Role="HoaDon">
+        <PropertyRef Name="MaKH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HoaDon_User">
+    <End Role="User" Type="Self.User" Multiplicity="0..1" />
+    <End Role="HoaDon" Type="Self.HoaDon" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="MaUser" />
+      </Principal>
+      <Dependent Role="HoaDon">
+        <PropertyRef Name="MaUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_KhachHang_LoaiKhachHang">
+    <End Role="LoaiKhachHang" Type="Self.LoaiKhachHang" Multiplicity="0..1" />
+    <End Role="KhachHang" Type="Self.KhachHang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LoaiKhachHang">
+        <PropertyRef Name="MaLoaiKH" />
+      </Principal>
+      <Dependent Role="KhachHang">
+        <PropertyRef Name="MaLoaiKH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PhanHoiSuCo_User">
+    <End Role="User" Type="Self.User" Multiplicity="0..1" />
+    <End Role="PhanHoiSuCo" Type="Self.PhanHoiSuCo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="MaUser" />
+      </Principal>
+      <Dependent Role="PhanHoiSuCo">
+        <PropertyRef Name="MaUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="QuanLyCafeEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CaLamViecs" EntityType="Self.CaLamViec" />
+    <EntitySet Name="ChiTietHoaDons" EntityType="Self.ChiTietHoaDon" />
+    <EntitySet Name="DD_HH" EntityType="Self.DD_HH" />
+    <EntitySet Name="DoDungs" EntityType="Self.DoDung" />
+    <EntitySet Name="HangHoas" EntityType="Self.HangHoa" />
+    <EntitySet Name="HH_NCC" EntityType="Self.HH_NCC" />
+    <EntitySet Name="HoaDons" EntityType="Self.HoaDon" />
+    <EntitySet Name="KhachHangs" EntityType="Self.KhachHang" />
+    <EntitySet Name="LoaiDoDungs" EntityType="Self.LoaiDoDung" />
+    <EntitySet Name="LoaiKhachHangs" EntityType="Self.LoaiKhachHang" />
+    <EntitySet Name="NhaCungCaps" EntityType="Self.NhaCungCap" />
+    <EntitySet Name="PhanHoiSuCoes" EntityType="Self.PhanHoiSuCo" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+    <AssociationSet Name="FK_CaLamViec_User" Association="Self.FK_CaLamViec_User">
+      <End Role="User" EntitySet="Users" />
+      <End Role="CaLamViec" EntitySet="CaLamViecs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ChiTietHoaDon_DoDung" Association="Self.FK_ChiTietHoaDon_DoDung">
+      <End Role="DoDung" EntitySet="DoDungs" />
+      <End Role="ChiTietHoaDon" EntitySet="ChiTietHoaDons" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ChiTietHoaDon_HoaDon" Association="Self.FK_ChiTietHoaDon_HoaDon">
+      <End Role="HoaDon" EntitySet="HoaDons" />
+      <End Role="ChiTietHoaDon" EntitySet="ChiTietHoaDons" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DD_HH_DoDung" Association="Self.FK_DD_HH_DoDung">
+      <End Role="DoDung" EntitySet="DoDungs" />
+      <End Role="DD_HH" EntitySet="DD_HH" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DD_HH_HangHoa" Association="Self.FK_DD_HH_HangHoa">
+      <End Role="HangHoa" EntitySet="HangHoas" />
+      <End Role="DD_HH" EntitySet="DD_HH" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DoDung_LoaiDoDung" Association="Self.FK_DoDung_LoaiDoDung">
+      <End Role="LoaiDoDung" EntitySet="LoaiDoDungs" />
+      <End Role="DoDung" EntitySet="DoDungs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HH_NCC_HangHoa" Association="Self.FK_HH_NCC_HangHoa">
+      <End Role="HangHoa" EntitySet="HangHoas" />
+      <End Role="HH_NCC" EntitySet="HH_NCC" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HH_NCC_NhaCungCap" Association="Self.FK_HH_NCC_NhaCungCap">
+      <End Role="NhaCungCap" EntitySet="NhaCungCaps" />
+      <End Role="HH_NCC" EntitySet="HH_NCC" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HoaDon_KhachHang" Association="Self.FK_HoaDon_KhachHang">
+      <End Role="KhachHang" EntitySet="KhachHangs" />
+      <End Role="HoaDon" EntitySet="HoaDons" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HoaDon_User" Association="Self.FK_HoaDon_User">
+      <End Role="User" EntitySet="Users" />
+      <End Role="HoaDon" EntitySet="HoaDons" />
+    </AssociationSet>
+    <AssociationSet Name="FK_KhachHang_LoaiKhachHang" Association="Self.FK_KhachHang_LoaiKhachHang">
+      <End Role="LoaiKhachHang" EntitySet="LoaiKhachHangs" />
+      <End Role="KhachHang" EntitySet="KhachHangs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PhanHoiSuCo_User" Association="Self.FK_PhanHoiSuCo_User">
+      <End Role="User" EntitySet="Users" />
+      <End Role="PhanHoiSuCo" EntitySet="PhanHoiSuCoes" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

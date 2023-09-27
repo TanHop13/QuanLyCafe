@@ -7,7 +7,8 @@ namespace Doan.Models
 {
     public static class ImageHelper
     {
-        public static MvcHtmlString Image(this HtmlHelper helper, string src, string altText, string height)
+        public static MvcHtmlString Image(this HtmlHelper helper, string src, 
+            string altText, string height)
         {
             var builder = new TagBuilder("img");
             builder.MergeAttribute("src", src);

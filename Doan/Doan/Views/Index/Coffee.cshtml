@@ -1,18 +1,16 @@
 ﻿@model IEnumerable<Doan.Models.DoDung>
 @using Doan.Models
 @{
-    Layout = null;
+    Layout = "~/Views/Shared/LayOut_Coffee.cshtml";
 }
-
 <div class="row">
-    @foreach (var item in Model)
+    @foreach (var items in Model)
     {
         <div class="col-sm-3" style="background-color:lavender; margin-top:5px; text-align:center;">
-            <h3>@Html.DisplayFor(modelItem => item.TenDD)</h3>
-            @Html.Image("../" + item.HinhDD, "alt", "100")<br />
-            @Html.DisplayFor(modeItem => item.Gia) <br />
-            <a href="@Url.Action("Details", "DoDungs", new {id = item.MaDD})" , class="btn btn-info btn-sm">Xem chi tiết</a>
+            <h3>@Html.DisplayFor(modelItem => items.TenDD)</h3>
+            @Html.Image("../" + items.HinhDD, "alt", "100")<br />
+            @Html.DisplayFor(modeItem => items.Gia) <br />
+            <a href="@Url.Action("Details", "DoDungs", new {id = items.MaDD})" , class="btn btn-info btn-sm">Xem chi tiết</a>
         </div>
     }
 </div>
-   

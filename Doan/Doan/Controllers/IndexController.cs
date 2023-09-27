@@ -25,13 +25,8 @@ namespace Doan.Controllers
         {
             return View();
         }
-        public ActionResult Coffee(string Searching = "")
+        public ActionResult Coffee()
         {
-            if (Searching != "")
-            {
-                var sp = db.DoDungs.Include(s => s.MaDD).Where(x => x.TenDD.ToUpper().Contains(Searching.ToUpper()));
-                return View(sp.ToList());
-            }
             return View();
         }
         public ActionResult Contact()

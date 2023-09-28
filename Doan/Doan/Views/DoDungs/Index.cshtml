@@ -1,52 +1,19 @@
 ﻿@model IEnumerable<Doan.Models.DoDung>
+@using Doan.Models
 
 @{
     ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/Layout.cshtml";
+    Layout = "~/Views/Shared/Layout_Coffee.cshtml";
 }
 
-<h2>Index</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.LoaiDoDung.TenLoai)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TenDD)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Gia)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.HinhDD)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.LoaiDoDung.TenLoai)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TenDD)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Gia)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.HinhDD)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.MaDD }) |
-            @Html.ActionLink("Details", "Details", new { id=item.MaDD }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.MaDD })
-        </td>
-    </tr>
-}
-
-</table>
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-sm-3" style="background-color:lavender; margin-top:5px; text-align:center;">
+            <h3>@Html.DisplayFor(modelItem => item.TenDD)</h3>
+            @Html.Image("../" + item.HinhDD, "alt", "100")<br />
+            @Html.DisplayFor(modeItem => item.Gia) <br />
+            <a href="@Url.Action("Details", "DoDungs", new {id = item.MaDD})" , class="btn btn-info btn-sm">Xem chi tiết</a>
+        </div>
+    }
+</div>}

@@ -20,7 +20,11 @@ namespace Doan.Controllers
             var doDungs = db.DoDungs.Include(d => d.LoaiDoDung);
             return View(doDungs.ToList());
         }
-
+        public ActionResult Index2()
+        {
+            var doDungs = db.DoDungs.Include(d => d.LoaiDoDung);
+            return View(doDungs.ToList());
+        }
         // GET: DoDungs/Details/5
         public ActionResult Details(string id)
         {

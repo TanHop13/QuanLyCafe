@@ -218,7 +218,6 @@
     <Content Include="Views\Index\Index.cshtml" />
     <Content Include="Views\Index\About.cshtml" />
     <Content Include="Views\Index\Blog.cshtml" />
-    <Content Include="Views\Index\Coffee.cshtml" />
     <Content Include="Views\Index\Contact.cshtml" />
     <Content Include="Views\Shared\Login_Layout.cshtml" />
     <Content Include="Views\Index\SignUp.cshtml" />
@@ -260,6 +259,7 @@
     <Content Include="Views\NhaCungCaps\Details.cshtml" />
     <Content Include="Views\NhaCungCaps\Edit.cshtml" />
     <Content Include="Views\NhaCungCaps\Index.cshtml" />
+    <Content Include="Views\DoDungs\Index2.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

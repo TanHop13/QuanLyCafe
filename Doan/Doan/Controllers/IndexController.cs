@@ -26,15 +26,17 @@ namespace Doan.Controllers
         {
             return View();
         }
-        public ActionResult Coffee()
-        {
-            return View();
-        }
+
         public ActionResult Contact()
         {
             return View();
         }
         public ActionResult Login()
+        {
+            return View();
+        }
+
+        public ActionResult Coffee()
         {
             return View();
         }

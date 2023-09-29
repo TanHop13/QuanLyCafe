@@ -36,10 +36,6 @@ namespace Doan.Controllers
             return View();
         }
 
-        public ActionResult Coffee()
-        {
-            return View();
-        }
 
         [HttpPost]
         public ActionResult Login(User user)

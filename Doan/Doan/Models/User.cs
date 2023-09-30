@@ -30,7 +30,7 @@ namespace Doan.Models
         [StringLength(15)]
         public string SDT { get; set; }
 
-        public bool? PhanQuyen { get; set; }
+        public int? PhanQuyen { get; set; }
 
         [StringLength(30)]
         public string MatKhau { get; set; }

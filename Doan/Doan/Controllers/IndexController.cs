@@ -6,6 +6,8 @@ using System.Web;
 using System.Web.Mvc;
 using System.Xml.Serialization.Configuration;
 using System.Data.Entity;
+using System.EnterpriseServices.CompensatingResourceManager;
+using System.Web.UI.WebControls;
 
 
 namespace Doan.Controllers
@@ -42,10 +44,29 @@ namespace Doan.Controllers
         {
             var acc = user.TenUser;
             var pass = user.MatKhau;
-            var check = db.Users.SingleOrDefault(x=>x.TenUser.Equals(acc) && x.MatKhau.Equals(pass));
-            if(check != null)
+            //User users = (User) Session["user"];
+            //var admin = db.Users.Count(s => s.TenUser.ToUpper() == users.TenUser.ToUpper() & s.PhanQuyen = false);
+            //var NhanVien = db.Users.Count(x => x.MaUser == users.MaUser & x.PhanQuyen = true);
+            //if(admin == 1)
+            //{
+            //    Session["User"] = admin;
+            //    return RedirectToAction("/DoDungs/Index");
+            //}
+            //else if(NhanVien == 1)
+            //{
+            //    Session["User"] = NhanVien;
+            //    return RedirectToAction("Index");
+            //}
+            var admin = db.Users.SingleOrDefault(x => x.TenUser.Equals(acc) && x.MatKhau.Equals(pass) && x.PhanQuyen == 1);
+            var nhanvien = db.Users.SingleOrDefault(s => s.TenUser.Equals(acc) && s.MatKhau.Equals(pass) && s.PhanQuyen == 0);
+            if (admin != null)
             {
-                Session["User"] = check;
+                Session["User"] = admin;
+                return Redirect("~/DoDungs/Index2");
+            }
+            else if(nhanvien!=null)
+            {
+                Session["User"] = nhanvien;
                 return RedirectToAction("Index");
             }
             else

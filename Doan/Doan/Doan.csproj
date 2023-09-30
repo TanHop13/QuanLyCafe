@@ -198,6 +198,7 @@
     <Compile Include="Models\Model_Login.cs" />
     <Compile Include="Models\NhaCungCap.cs" />
     <Compile Include="Models\PhanHoiSuCo.cs" />
+    <Compile Include="Models\sysdiagram.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

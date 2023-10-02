@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using Doan.Models;
 
+
 namespace Doan.Controllers
 {
     public class DoDungsController : Controller
@@ -25,9 +26,26 @@ namespace Doan.Controllers
             var doDungs = db.DoDungs.Include(d => d.LoaiDoDung);
             return View(doDungs.ToList());
         }
-        public ActionResult Index2()
+        public ActionResult Index2(string Sort)
         {
+            ViewBag.SortByName = String.IsNullOrEmpty(Sort) ? "ten" : "";
+            ViewBag.SortByPrice = (Sort == "dongia" ? "dongia_desc" : "dongia");
             var doDungs = db.DoDungs.Include(d => d.LoaiDoDung);
+            switch(Sort)
+            {
+                case "ten":
+                    doDungs = doDungs.OrderByDescending(s => s.TenDD);
+                    break;
+                case "dongia_desc":
+                    doDungs = doDungs.OrderByDescending(s => s.Gia);
+                    break;
+                case "dongia":
+                    doDungs = doDungs.OrderBy(s => s.Gia);
+                    break;
+                default:
+                    doDungs = doDungs.OrderBy(s => s.MaDD);
+                    break;
+            }
             return View(doDungs.ToList());
         }
         // GET: DoDungs/Details/5

@@ -2,7 +2,7 @@
 @using Doan.Models
 
 @{
-    ViewBag.Title = "Index2";
+    ViewBag.Title = "Danh muc do dung";
     Layout = "~/Views/Shared/Layout_Menu.cshtml";
 }
 
@@ -15,10 +15,12 @@
             @Html.DisplayNameFor(model => model.LoaiDoDung.TenLoai)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.TenDD)
+            @*@Html.DisplayNameFor(model => model.TenDD)*@
+            @Html.ActionLink("Ten san pham", "Index2", new {Sort = ViewBag.SortByName})
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Gia)
+            @*@Html.DisplayNameFor(model => model.Gia)*@
+            @Html.ActionLink("Gia", "Index2", new { Sort = ViewBag.SortByPrice })
         </th>
         <th>
             @Html.DisplayNameFor(model => model.HinhDD)
@@ -38,8 +40,10 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Gia)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.HinhDD)
+            <td style="max-width: 50px; height: auto">
+                @*@Html.DisplayFor(modelItem => item.HinhDD)*@
+                @Html.Image("../" + item.HinhDD, "alt", "100")
+
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.MaDD }) |

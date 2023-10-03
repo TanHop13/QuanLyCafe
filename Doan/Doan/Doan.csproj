@@ -180,6 +180,7 @@
     <Compile Include="Controllers\HoaDonsController.cs" />
     <Compile Include="Controllers\IndexController.cs" />
     <Compile Include="Controllers\KhachHangsController.cs" />
+    <Compile Include="Controllers\KhachHang_AdminController.cs" />
     <Compile Include="Controllers\LoaiDoDungsController.cs" />
     <Compile Include="Controllers\NhaCungCapsController.cs" />
     <Compile Include="Controllers\NhanVienController.cs" />
@@ -280,6 +281,12 @@
     <Content Include="Views\Shared\Layout_Menu_NhanVien.cshtml" />
     <Content Include="Views\Users\UserNhanVien.cshtml" />
     <Content Include="Views\KhachHangs\UserNhanVien.cshtml" />
+    <Content Include="Views\KhachHang_Admin\Create.cshtml" />
+    <Content Include="Views\KhachHang_Admin\Delete.cshtml" />
+    <Content Include="Views\KhachHang_Admin\Details.cshtml" />
+    <Content Include="Views\KhachHang_Admin\Edit.cshtml" />
+    <Content Include="Views\KhachHang_Admin\Index.cshtml" />
+    <Content Include="Views\Users\Edit_Admin.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

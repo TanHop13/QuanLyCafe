@@ -35,6 +35,7 @@
     @{var user = Session["User"] as Doan.Models.User;}
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
+            <a href="@Url.Action("Edit_Admin", "Users", new {id = @user.MaUser})" , class="navbar-brand">Admin</a>
             <a class="navbar-brand" href="~/DoDungs/Index2">Admin</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -45,7 +46,7 @@
                         <a class="nav-link active" aria-current="page" href="~/Users/Index">Users</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="~/KhachHangs/Index">Khách Hàng</a>
+                        <a class="nav-link" href="~/KhachHang_Admin/Index">Khách Hàng</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="~/LoaiDoDungs/Index" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -62,7 +63,7 @@
                         <a class="nav-link" href="~/NhaCungCaps/Index">Nhà Cung Cấp</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link disabled" aria-disabled="true">Chi Tiết Hoá Đơn</a>
+                        <a class="nav-link" href="~/ChiTietHoaDons/Index">Chi Tiết hóa đơn</a>
                     </li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0">

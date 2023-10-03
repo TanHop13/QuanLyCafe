@@ -1,4 +1,5 @@
 ﻿@model Doan.Models.DoDung
+@using Doan.Models
 
 @{
     ViewBag.Title = "Details";
@@ -35,14 +36,18 @@
             @Html.DisplayFor(model => model.Gia)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.HinhDD)
+        <dt style="max-width:200px">
+            @Html.Image("../../" + @Model.HinhDD, @Model.HinhDD, "100")
         </dt>
-
         <dd>
-            @Html.DisplayFor(model => model.HinhDD)
+            <a class=" btn btn-success btn-sm" href="@Url.Action("Them vao gio hang","Gio Hang", new {MaDD = @Model.MaDD})">
+                <span class="glyphicon glyphicon-shopping-cart"></span>
+                Them vao gio
+            </a>
+            <a class=" btn btn-success btn-sm" href="@Url.Action("Index","Index", new {MaDD = @Model.MaDD})">
+                Quay lai
+            </a>
         </dd>
-
     </dl>
 </div>
 <p>

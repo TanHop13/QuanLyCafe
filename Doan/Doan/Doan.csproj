@@ -105,9 +105,11 @@
     <Content Include="image\CafeDen.jpg" />
     <Content Include="image\CafeSua.jpg" />
     <Content Include="image\CocaCola.jpg" />
+    <Content Include="image\jerry.jpg" />
     <Content Include="image\NuocDua.png" />
     <Content Include="image\NuocEpXoai.jpg" />
     <Content Include="image\SuaNuti.png" />
+    <Content Include="image\Tom.png" />
     <Content Include="Web\html\css\animate.min.css" />
     <Content Include="Web\html\css\bootstrap-grid.css" />
     <Content Include="Web\html\css\bootstrap-grid.min.css" />
@@ -180,6 +182,7 @@
     <Compile Include="Controllers\KhachHangsController.cs" />
     <Compile Include="Controllers\LoaiDoDungsController.cs" />
     <Compile Include="Controllers\NhaCungCapsController.cs" />
+    <Compile Include="Controllers\NhanVienController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -268,6 +271,15 @@
     <Content Include="Views\Users\Details.cshtml" />
     <Content Include="Views\Users\Edit.cshtml" />
     <Content Include="Views\Users\Index.cshtml" />
+    <Content Include="Views\DoDungs\Details_KhachHang.cshtml" />
+    <Content Include="Views\NhanVien\Create.cshtml" />
+    <Content Include="Views\NhanVien\Delete.cshtml" />
+    <Content Include="Views\NhanVien\Details.cshtml" />
+    <Content Include="Views\NhanVien\Edit.cshtml" />
+    <Content Include="Views\NhanVien\Index2.cshtml" />
+    <Content Include="Views\Shared\Layout_Menu_NhanVien.cshtml" />
+    <Content Include="Views\Users\UserNhanVien.cshtml" />
+    <Content Include="Views\KhachHangs\UserNhanVien.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

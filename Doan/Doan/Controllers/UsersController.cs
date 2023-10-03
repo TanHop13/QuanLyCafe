@@ -20,6 +20,10 @@ namespace Doan.Controllers
             return View(db.Users.ToList());
         }
 
+        public ActionResult UserNhanVien()
+        {
+            return View(db.Users.ToList());
+        }
         // GET: Users/Details/5
         public ActionResult Details(string id)
         {

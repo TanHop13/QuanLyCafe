@@ -1,0 +1,55 @@
+﻿@model IEnumerable<Doan.Models.DoDung>
+@using Doan.Models
+@{
+    ViewBag.Title = "Danh muc do dung";
+    Layout = "~/Views/Shared/Layout_Menu_NhanVien.cshtml";
+}
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.LoaiDoDung.TenLoai)
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.TenDD)*@
+            @Html.ActionLink("Ten san pham", "Index2", new {Sort = ViewBag.SortByName})
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.Gia)*@
+            @Html.ActionLink("Gia", "Index2", new { Sort = ViewBag.SortByPrice })
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HinhDD)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.LoaiDoDung.TenLoai)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenDD)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gia)
+            </td>
+            <td style="max-width: 50px; height: auto">
+                @*@Html.DisplayFor(modelItem => item.HinhDD)*@
+                @Html.Image("../" + item.HinhDD, "alt", "100")
+
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.MaDD }) |
+                @Html.ActionLink("Details", "Details", new { id = item.MaDD }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.MaDD })
+            </td>
+        </tr>
+    }
+</table>
+

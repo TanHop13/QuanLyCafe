@@ -11,9 +11,9 @@ using Doan.Models;
 
 namespace Doan.Controllers
 {
-    public class DoDungsController : Controller
+    public class NhanVienController : Controller
     {
-       private Model_Login db = new Model_Login();
+        private Model_Login db = new Model_Login();
 
         // GET: DoDungs
         public ActionResult Index(string Searching = "")
@@ -31,7 +31,7 @@ namespace Doan.Controllers
             ViewBag.SortByName = String.IsNullOrEmpty(Sort) ? "ten" : "";
             ViewBag.SortByPrice = (Sort == "dongia" ? "dongia_desc" : "dongia");
             var doDungs = db.DoDungs.Include(d => d.LoaiDoDung);
-            switch(Sort)
+            switch (Sort)
             {
                 case "ten":
                     doDungs = doDungs.OrderByDescending(s => s.TenDD);

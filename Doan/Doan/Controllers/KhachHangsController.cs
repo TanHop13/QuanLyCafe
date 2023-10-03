@@ -20,6 +20,11 @@ namespace Doan.Controllers
             var khachHangs = db.KhachHangs.Include(k => k.LoaiKhachHang);
             return View(khachHangs.ToList());
         }
+        public ActionResult UserNhanVien()
+        {
+            var khachHangs = db.KhachHangs.Include(k => k.LoaiKhachHang);
+            return View(khachHangs.ToList());
+        }
 
         // GET: KhachHangs/Details/5
         public ActionResult Details(string id)

@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Doan.Models.User>
+@{
+    ViewBag.Title = "Users";
+    Layout = "~/Views/Shared/Layout_Menu_NhanVien.cshtml";
+}
+
+<h2>user</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TenUser)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DiaChi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SDT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PhanQuyen)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MatKhau)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenUser)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DiaChi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SDT)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhanQuyen)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MatKhau)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.MaUser }) |
+                @Html.ActionLink("Details", "Details", new { id = item.MaUser }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.MaUser })
+            </td>
+        </tr>
+    }
+
+</table>

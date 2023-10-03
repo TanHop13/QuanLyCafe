@@ -67,7 +67,7 @@ namespace Doan.Controllers
             else if(nhanvien!=null)
             {
                 Session["User"] = nhanvien;
-                return RedirectToAction("Index");
+                return Redirect("~/NhanVien/Index2");
             }
             else
             {

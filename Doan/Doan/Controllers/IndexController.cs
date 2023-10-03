@@ -42,7 +42,7 @@ namespace Doan.Controllers
         [HttpPost]
         public ActionResult Login(User user)
         {
-            var acc = user.TenUser;
+            var acc = user.MaUser;
             var pass = user.MatKhau;
             //User users = (User) Session["user"];
             //var admin = db.Users.Count(s => s.TenUser.ToUpper() == users.TenUser.ToUpper() & s.PhanQuyen = false);
@@ -57,8 +57,8 @@ namespace Doan.Controllers
             //    Session["User"] = NhanVien;
             //    return RedirectToAction("Index");
             //}
-            var admin = db.Users.SingleOrDefault(x => x.TenUser.Equals(acc) && x.MatKhau.Equals(pass) && x.PhanQuyen == 1);
-            var nhanvien = db.Users.SingleOrDefault(s => s.TenUser.Equals(acc) && s.MatKhau.Equals(pass) && s.PhanQuyen == 0);
+            var admin = db.Users.SingleOrDefault(x => x.MaUser.Equals(acc) && x.MatKhau.Equals(pass) && x.PhanQuyen == 1);
+            var nhanvien = db.Users.SingleOrDefault(s => s.MaUser.Equals(acc) && s.MatKhau.Equals(pass) && s.PhanQuyen == 0);
             if (admin != null)
             {
                 Session["User"] = admin;

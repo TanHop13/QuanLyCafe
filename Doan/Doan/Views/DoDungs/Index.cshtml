@@ -10,7 +10,7 @@
     {
         <div class="col-sm-3" style="background-color:lavender; margin-top:5px; text-align:center;">
             <h3>@Html.DisplayFor(modelItem => item.TenDD)</h3>
-            @Html.Image("../" + item.HinhDD, "alt", "100")<br />
+            @Html.Image("../" + item.HinhDD, "alt", "200")<br />
             @Html.DisplayFor(modeItem => item.Gia) <br />
             <a href="@Url.Action("Details_KhachHang", "DoDungs", new {id = item.MaDD})" , class="btn btn-info btn-sm">Xem chi tiết</a>
         </div>

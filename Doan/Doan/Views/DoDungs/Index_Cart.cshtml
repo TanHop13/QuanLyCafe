@@ -1,0 +1,42 @@
+﻿@model List<Doan.Models.DoDung>
+@using Doan.Models
+@{
+    ViewBag.Title = "Index_Cart";
+    Layout = "~/Views/Shared/Layout_Menu_NhanVien.cshtml";
+}
+
+<table class="table">
+    <tr>
+        <td>Ma</td>
+        <td>Ten</td>
+        <td>Anh</td>
+        <td>SoLuong</td>
+        <td>DonGia</td>
+        <td>ThanhTien</td>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @item.MaDD
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenDD)
+            </td>
+            <td style="max-width: 50px; height: auto">
+                @Html.Image("../" + item.HinhDD, "alt", "100")
+            </td>
+            <td>
+                <input type="text" class="quantity" value="@item.SoLuong" />
+            </td>
+            <td>
+                @item.Gia.GetValueOrDefault(0).ToString()
+            </td>
+            <td>
+                @(item.Gia.GetValueOrDefault(0) * item.SoLuong)
+            </td>
+        </tr>
+    }
+</table>
+

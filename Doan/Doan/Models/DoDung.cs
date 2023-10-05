@@ -23,7 +23,6 @@ namespace Doan.Models
         [StringLength(50)]
         public string TenDD { get; set; }
 
-        [Column(TypeName = "money")]
         public decimal? Gia { get; set; }
 
         [StringLength(10)]
@@ -31,6 +30,8 @@ namespace Doan.Models
 
         [StringLength(50)]
         public string HinhDD { get; set; }
+
+        public int? SoLuong { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ChiTietHoaDon> ChiTietHoaDons { get; set; }

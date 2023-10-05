@@ -168,5 +168,61 @@ namespace Doan.Controllers
             }
             return View(doDung);
         }
+
+        private const string CartSession = "CartSession";
+        // GET: DoDung
+        public ActionResult Index_Cart()
+        {
+
+            var cart = Session[CartSession];
+            var list = new List<DoDung>();
+            if (cart != null)
+            {
+                list = (List<DoDung>)cart;
+            }
+            return View(list);
+        }
+
+        public ActionResult AddItem(string MaDD, int SoLuong, string TenDD, int Gia, string Image)
+        {
+            var cart = Session[CartSession];
+            if (cart != null)
+            {
+                var list = (List<DoDung>)cart;
+                if (list.Exists(x => x.MaDD == MaDD))
+                {
+                    foreach (var item in list)
+                    {
+                        if (item.MaDD == MaDD)
+                        {
+                            item.SoLuong += SoLuong;
+                        }
+                    }
+                }
+                else
+                {
+                    var item = new DoDung();
+                    item.MaDD = MaDD;
+                    item.SoLuong = SoLuong;
+                    item.TenDD = TenDD;
+                    item.Gia = Gia;
+                    item.HinhDD = Image;
+                    list.Add(item);
+                }
+            }
+            else
+            {
+                var item = new DoDung();
+                item.MaDD = MaDD;
+                item.SoLuong = SoLuong;
+                item.TenDD = TenDD;
+                item.Gia = Gia;
+                item.HinhDD = Image;
+                var list = new List<DoDung>();
+                list.Add(item);
+                Session[CartSession] = list;
+            }
+            return RedirectToAction("Index_Cart");
+        }
     }
 }

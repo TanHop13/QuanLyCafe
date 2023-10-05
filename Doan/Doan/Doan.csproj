@@ -287,6 +287,7 @@
     <Content Include="Views\KhachHang_Admin\Edit.cshtml" />
     <Content Include="Views\KhachHang_Admin\Index.cshtml" />
     <Content Include="Views\Users\Edit_Admin.cshtml" />
+    <Content Include="Views\DoDungs\Index_Cart.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

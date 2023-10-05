@@ -35,22 +35,29 @@
         <dd>
             @Html.DisplayFor(model => model.Gia)
         </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SoLuong)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoLuong)
+        </dd>
 
         <dt style="max-width:200px">
             @Html.Image("../../" + @Model.HinhDD, @Model.HinhDD, "100")
         </dt>
         <dd>
-            <a class=" btn btn-success btn-sm" href="@Url.Action("Them vao gio hang","Gio Hang", new {MaDD = @Model.MaDD})">
+            <a class=" btn btn-success btn-sm" href="@Url.Action("AddItem","DoDungs", new {MaDD = Model.MaDD, SoLuong = 1, TenDD = Model.TenDD, Gia = Model.Gia, Image = Model.HinhDD})">
                 <span class="glyphicon glyphicon-shopping-cart"></span>
-                Them vao gio
+                Gio Hang
             </a>
-            <a class=" btn btn-success btn-sm" href="@Url.Action("Index","Index", new {MaDD = @Model.MaDD})">
+            <a class=" btn btn-success btn-sm" href="@Url.Action("Index2","NhanVien", new {MaDD = Model.MaDD})">
                 Quay lai
             </a>
         </dd>
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.MaDD }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MaDD })
     @Html.ActionLink("Back to List", "Index")
 </p>

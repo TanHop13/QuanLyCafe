@@ -31,7 +31,7 @@ namespace Doan.Models
         {
             modelBuilder.Entity<DoDung>()
                 .Property(e => e.Gia)
-                .HasPrecision(19, 4);
+                .HasPrecision(18, 0);
 
             modelBuilder.Entity<DoDung>()
                 .HasMany(e => e.DD_HH)

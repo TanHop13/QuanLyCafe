@@ -237,19 +237,15 @@ namespace Doan.Controllers
         {
             var cart = Session[CartSession];
             var list = (List<DoDung>)cart;
-            if (list.Exists(x => x.MaDD == MaDD))
-            {
+            
                 foreach (var item in list)
                 {
                     if (item.MaDD == MaDD)
                     {
-                        item.MaDD = MaDD;
                         item.SoLuong = SoLuong;
-                        list.Add(item);
                         Session[CartSession] = list;
                     }
                 }
-            }
             return RedirectToAction("Index_Cart");
         
         }

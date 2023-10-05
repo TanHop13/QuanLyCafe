@@ -224,5 +224,35 @@ namespace Doan.Controllers
             }
             return RedirectToAction("Index_Cart");
         }
+        public ActionResult DeleteItem(string id)
+        {
+            var sessionCart = (List<DoDung>)Session[CartSession];
+            sessionCart.RemoveAll(x => x.MaDD == id);
+            Session[CartSession] = sessionCart;
+            return RedirectToAction("Index_Cart");
+
+        }
+
+        public ActionResult UpdateItem(string MaDD, int SoLuong)
+        {
+            var cart = Session[CartSession];
+            var list = (List<DoDung>)cart;
+            if (list.Exists(x => x.MaDD == MaDD))
+            {
+                foreach (var item in list)
+                {
+                    if (item.MaDD == MaDD)
+                    {
+                        item.MaDD = MaDD;
+                        item.SoLuong = SoLuong;
+                        list.Add(item);
+                        Session[CartSession] = list;
+                    }
+                }
+            }
+            return RedirectToAction("Index_Cart");
+        
+        }
     }
 }
+

@@ -249,6 +249,44 @@ namespace Doan.Controllers
             return RedirectToAction("Index_Cart");
         
         }
+        public ActionResult DeleteCart()
+        {
+            Session[CartSession] = null;
+            return RedirectToAction("Index_Cart");
+        }
+
+        public ActionResult Payment()
+        {
+            decimal total = 0;
+            var cart = Session[CartSession];
+            var list = new List<DoDung>();
+            if (cart != null)
+            {
+                list = (List<DoDung>)cart;
+                if (list != null)
+                {
+                    foreach (var item in list)
+                    {
+                        total = (decimal)list.Sum(x => x.Gia * x.SoLuong);
+                    }
+                }
+                ViewBag.Total = total;
+            }
+            return View(list);
+        }
+
+        public ActionResult Confirm(string MaHD, DateTime NgayTaoHoaDon, int TongTien, string MaKH, string MaUser)
+        {
+            HoaDon hoaDon = new HoaDon();
+            hoaDon.MaHD = MaHD;
+            hoaDon.NgayTaoHD = NgayTaoHoaDon;
+            hoaDon.TongTien = TongTien;
+            hoaDon.MaKH = MaKH;
+            hoaDon.MaUser = MaUser;
+            db.HoaDons.Add(hoaDon); 
+            db.SaveChanges();
+            return RedirectToAction("Payment");
+        }
     }
 }
 

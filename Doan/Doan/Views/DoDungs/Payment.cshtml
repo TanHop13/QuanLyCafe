@@ -1,0 +1,93 @@
+﻿@model List<Doan.Models.DoDung>
+@using Doan.Models
+@{
+    ViewBag.Title = "Payment";
+    Layout = "~/Views/Shared/Layout_Menu_NhanVien.cshtml";
+}
+@{var user = Session["User"] as Doan.Models.User;}
+
+@if (Model.Count > 0)
+{
+    <table class="table">
+        <tr>
+            <td>Ma</td>
+            <td>Ten</td>
+            <td>Anh</td>
+            <td>SoLuong</td>
+            <td>DonGia</td>
+            <td>ThanhTien</td>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            using (Html.BeginForm("UpdateItem", "DoDungs"))
+            {
+                <tr>
+                    <td>
+                        <input name="MaDD" value="@item.MaDD" />
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TenDD)
+                    </td>
+                    <td style="max-width: 50px; height: auto">
+                        @Html.Image("../" + item.HinhDD, "alt", "100")
+                    </td>
+                    <td>
+                        <input type="text" name="SoLuong" id="SoLuong" value="@item.SoLuong" />
+                    </td>
+                    <td>
+                        @item.Gia.GetValueOrDefault(0).ToString()
+                    </td>
+                    <td>
+                        @(item.Gia.GetValueOrDefault(0) * item.SoLuong)
+                    </td>
+                    <td>
+                        <a href="@Url.Action("DeleteItem", "Dodungs", new { id = item.MaDD })">Xoa</a>
+                    </td>
+                    <td>
+                        <input type="submit" value="Cập nhật" />
+                    </td>
+                </tr>
+            }
+        }
+    </table>
+    <div class="row">
+        @using (Html.BeginForm("Confirm", "DoDungs", FormMethod.Post))
+        {
+            <div class="form-group">
+                <label>MaHD</label>
+                <input type="text" name="MaHD" required class="form-control" />
+            </div>
+            <div class="form-group">
+                <label>MaKH</label>
+                <input type="text" name="MaKH" required class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <label>MaUser</label>
+                <input type="text" name="MaUser" value="@user.MaUser" />
+            </div>
+            <div class="form-group">
+                <label>Tổng tiền</label>
+                <input type="text" name="TongTien" value="@ViewBag.Total" />
+            </div>
+            <div class="form-group">
+                <label>Ngày tạo</label>
+                <input type="text" name="NgayTaoHoaDon" required class="form-control" value="@DateTime.Now" />
+                <div>
+                    <input type="submit" value="Xác nhận" />
+                </div>
+            </div>
+            <a class=" btn btn-success btn-sm" href="@Url.Action("Index2", "NhanVien")">
+                Tiep tuc mua hang
+            </a>
+            <a class=" btn btn-success btn-sm" href="@Url.Action("DeleteCart", "Dodungs")">
+                Xoa gio hang
+            </a>
+            }
+        </div>
+}
+else
+{
+    <span class="alert alert-danger">Chua co san pham trong gio hang</span>
+}

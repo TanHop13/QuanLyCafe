@@ -285,6 +285,7 @@ namespace Doan.Controllers
             hoaDon.MaUser = MaUser;
             db.HoaDons.Add(hoaDon); 
             db.SaveChanges();
+
             return RedirectToAction("Payment");
         }
     }

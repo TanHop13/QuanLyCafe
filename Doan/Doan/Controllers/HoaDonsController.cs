@@ -132,5 +132,10 @@ namespace Doan.Controllers
             }
             base.Dispose(disposing);
         }
+
+        public ActionResult ThongKe()
+        {
+            return View();  
+        }
     }
 }

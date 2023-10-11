@@ -289,6 +289,7 @@
     <Content Include="Views\Users\Edit_Admin.cshtml" />
     <Content Include="Views\DoDungs\Index_Cart.cshtml" />
     <Content Include="Views\DoDungs\Payment.cshtml" />
+    <Content Include="Views\HoaDons\ThongKe.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

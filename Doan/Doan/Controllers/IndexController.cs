@@ -8,7 +8,10 @@ using System.Xml.Serialization.Configuration;
 using System.Data.Entity;
 using System.EnterpriseServices.CompensatingResourceManager;
 using System.Web.UI.WebControls;
-
+using System.Text;
+using System.Security.Cryptography;
+using System.Data.Entity.Infrastructure;
+using System.Web.Helpers;
 
 namespace Doan.Controllers
 {
@@ -42,38 +45,49 @@ namespace Doan.Controllers
         [HttpPost]
         public ActionResult Login(User user)
         {
-            var acc = user.MaUser;
-            var pass = user.MatKhau;
-            //User users = (User) Session["user"];
-            //var admin = db.Users.Count(s => s.TenUser.ToUpper() == users.TenUser.ToUpper() & s.PhanQuyen = false);
-            //var NhanVien = db.Users.Count(x => x.MaUser == users.MaUser & x.PhanQuyen = true);
-            //if(admin == 1)
+            //var acc = user.MaUser;
+            //var pass = user.MatKhau;
+            //var admin = db.Users.SingleOrDefault(x => x.MaUser.Equals(acc) && x.MatKhau.Equals(pass) && x.PhanQuyen == 1);
+            //var nhanvien = db.Users.SingleOrDefault(s => s.MaUser.Equals(acc) && s.MatKhau.Equals(pass) && s.PhanQuyen == 0);
+            //if (admin != null)
             //{
             //    Session["User"] = admin;
-            //    return RedirectToAction("/DoDungs/Index");
+            //    return Redirect("~/DoDungs/Index2");
             //}
-            //else if(NhanVien == 1)
+            //else if(nhanvien!=null)
             //{
-            //    Session["User"] = NhanVien;
-            //    return RedirectToAction("Index");
+            //    Session["User"] = nhanvien;
+            //    return Redirect("~/NhanVien/Index2");
             //}
-            var admin = db.Users.SingleOrDefault(x => x.MaUser.Equals(acc) && x.MatKhau.Equals(pass) && x.PhanQuyen == 1);
-            var nhanvien = db.Users.SingleOrDefault(s => s.MaUser.Equals(acc) && s.MatKhau.Equals(pass) && s.PhanQuyen == 0);
-            if (admin != null)
+            //else
+            //{
+            //    ViewBag.LoginFail = "Đăng nhập thất bại, vui lòng kiểm tra lại";
+            //    return View("Login");
+            //}
+            if (ModelState.IsValid)
             {
-                Session["User"] = admin;
-                return Redirect("~/DoDungs/Index2");
+
+
+                var mk = GetMD5(user.MatKhau);
+                var checkAdmin = db.Users.SingleOrDefault(s => s.MaUser.Equals(user.MaUser) && s.MatKhau.Equals(mk) && s.PhanQuyen == 1);
+                var checkNV = db.Users.SingleOrDefault(s => s.MaUser.Equals(user.MaUser) && s.MatKhau.Equals(mk) && s.PhanQuyen == 0);
+                if (checkAdmin != null)
+                {
+                    Session["User"] = checkAdmin;
+                    return Redirect("~/DoDungs/Index2");
+                }
+                else if (checkNV != null)
+                {
+                    Session["User"] = checkNV;
+                    return Redirect("~/NhanVien/Index2");
+                }
+                else
+                {
+                    ViewBag.LoginFail = "Đăng nhập thất bại, vui lòng kiểm tra lại";
+                    return View("Login");
+                }
             }
-            else if(nhanvien!=null)
-            {
-                Session["User"] = nhanvien;
-                return Redirect("~/NhanVien/Index2");
-            }
-            else
-            {
-                ViewBag.LoginFail = "Đăng nhập thất bại, vui lòng kiểm tra lại";
-                return View("Login");
-            }
+            return View();
         }
 
         public ActionResult SignUp()
@@ -84,8 +98,28 @@ namespace Doan.Controllers
         [HttpPost]
         public ActionResult SignUp(User user)
         {
-            db.Users.Add(user);
-            db.SaveChanges();
+            if (ModelState.IsValid)
+            {
+                var check = db.Users.FirstOrDefault(s => s.TenUser == user.TenUser);
+                if (check == null)
+                {
+                    user.MatKhau = GetMD5(user.MatKhau);
+                    db.Configuration.ValidateOnSaveEnabled = false;
+                    db.Users.Add(user);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    ViewBag.error = "Tài khoản đã tồn tại";
+                    return View();
+                }
+
+
+            }
+
+            //db.Users.Add(user);
+            //db.SaveChanges();
             return RedirectToAction("Login");
         }
 
@@ -93,6 +127,20 @@ namespace Doan.Controllers
         {
             Session["User"] = null;
             return RedirectToAction("Index");
+        }
+        public static string GetMD5(string str)
+        {
+            MD5 md5 = new MD5CryptoServiceProvider();
+            byte[] fromData = Encoding.UTF8.GetBytes(str);
+            byte[] targetData = md5.ComputeHash(fromData);
+            string byte2String = null;
+
+            for (int i = 0; i < targetData.Length; i++)
+            {
+                byte2String += targetData[i].ToString("x2");
+
+            }
+            return byte2String;
         }
     }
 }

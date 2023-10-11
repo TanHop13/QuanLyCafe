@@ -283,7 +283,8 @@ namespace Doan.Controllers
             hoaDon.TongTien = TongTien;
             hoaDon.MaKH = MaKH;
             hoaDon.MaUser = MaUser;
-            db.HoaDons.Add(hoaDon); 
+            db.HoaDons.Add(hoaDon);
+            
             db.SaveChanges();
 
             return RedirectToAction("Payment");

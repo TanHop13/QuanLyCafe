@@ -33,9 +33,9 @@
 </head>
 <body>
     @{var user = Session["User"] as Doan.Models.User;}
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <nav class="navbar navbar-expand-lg" style="background-color: aqua">
         <div class="container-fluid">
-            <a href="@Url.Action("Edit", "Users", new {id = @user.MaUser})" , class="navbar-brand">Nhan Vien</a>
+            <a href="@Url.Action("Edit", "Users", new {id = @user.MaUser})" , class="navbar-brand">NHÂN VIÊN</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -45,10 +45,10 @@
                         <a class="nav-link active" aria-current="page" href="~/NhanVien/index2">Thực đơn</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="~/KhachHangs/UserNhanVien">Khách Hàng</a>
+                        <a class="nav-link active" href="~/KhachHangs/UserNhanVien">Khách Hàng</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="~/HoaDons/Index">Hóa đơn</a>
+                        <a class="nav-link active" href="~/HoaDons/Index">Hóa đơn</a>
                     </li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
@@ -63,16 +63,11 @@
                             }
                             else
                             {
-                                <a href="#" , style="color:black">Xin chào: @user.TenUser</a>
+                                <a href="#" , style="color:black">Chào: @user.TenUser</a>
                                 @Html.ActionLink("Đăng Xuất", "SignOut", "Index")
                             }
-                                <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
                             </ul>
                         </div>
-                    </form>
-                    <form class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
                     </form>
                 </div>
             </div>

@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/Layout_Menu_NhanVien.cshtml";
 }
 
-<h2>Index</h2>
+<h2>THÔNG TIN HÓA ĐƠN</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -13,16 +13,16 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.KhachHang.TenKH)
+            <h4> Tên khách hàng</h4>
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.User.TenUser)
+            <h4> Tên nhân viên</h4>
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.NgayTaoHD)
+            <h4> Ngày tạo hóa đơn</h4>
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.TongTien)
+            <h4> Tổng tiền</h4>
         </th>
         <th></th>
     </tr>
@@ -42,7 +42,6 @@
             @Html.DisplayFor(modelItem => item.TongTien)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.MaHD }) |
             @Html.ActionLink("Details", "Details", new { id=item.MaHD }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.MaHD })
         </td>

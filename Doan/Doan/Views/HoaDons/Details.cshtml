@@ -2,50 +2,42 @@
 
 @{
     ViewBag.Title = "Details";
-    Layout = "~/Views/Shared/Layout_Menu.cshtml";
+    Layout = "~/Views/Shared/Layout_Menu_NhanVien.cshtml";
 }
 
-<h2>Details</h2>
-
+<h2>CHI TIẾT HÓA ĐƠN</h2>
 <div>
-    <h4>HoaDon</h4>
+    <h4>Hóa Đơn</h4>
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.KhachHang.TenKH)
-        </dt>
-
-        <dd>
+    <div class="form-group">
+        <label class="control-label col-md-3" style="font-weight:bold"> Tên khách hàng</label>
+        <div class="col-md-4">
             @Html.DisplayFor(model => model.KhachHang.TenKH)
-        </dd>
+        </div>
+    </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.User.TenUser)
-        </dt>
 
-        <dd>
+    <div class="form-group">
+        <label class="control-label col-md-3" style="font-weight:bold"> Tên nhân viên</label>
+        <div class="col-md-4">
             @Html.DisplayFor(model => model.User.TenUser)
-        </dd>
+        </div>
+    </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.NgayTaoHD)
-        </dt>
-
-        <dd>
+    <div class="form-group">
+        <label class="control-label col-md-3" style="font-weight:bold"> Ngày tạo hóa đơn </label>
+        <div class="col-md-4">
             @Html.DisplayFor(model => model.NgayTaoHD)
-        </dd>
+        </div>
+    </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.TongTien)
-        </dt>
-
-        <dd>
+    <div class="form-group">
+        <label class="control-label col-md-3" style="font-weight:bold"> Tổng tiền </label>
+        <div class="col-md-4">
             @Html.DisplayFor(model => model.TongTien)
-        </dd>
-
-    </dl>
+        </div>
+    </div>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.MaHD }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

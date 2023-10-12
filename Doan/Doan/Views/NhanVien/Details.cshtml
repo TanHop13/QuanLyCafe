@@ -7,8 +7,6 @@
 }
 
 <h2>Trang chi tiết sản phẩm</h2>
-<div style="display:flex">
-    <div style="padding-left:100px">
         <dl style="max-width:400px; max-height:400px">
             @Html.Image("../../" + @Model.HinhDD, @Model.HinhDD, "300")
         </dl>
@@ -54,7 +52,6 @@
             </dd>
         </dl>
     </div>
-</div>
 
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.MaDD })

@@ -6,49 +6,51 @@
     Layout = "~/Views/Shared/Layout_Menu.cshtml";
 }
 
-<h2>Details</h2>
+<h2>Trang chi tiết sản phẩm</h2>
+<div style="display:flex">
+    <div style="padding-left:100px">
+        <dl style="max-width:400px; max-height:400px">
+            @Html.Image("../../" + @Model.HinhDD, @Model.HinhDD, "300")
+        </dl>
+    </div>
 
-<div>
-    <h4>DoDung</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.LoaiDoDung.TenLoai)
-        </dt>
+    <div>
+        <div class="form-group">
+            <label class="control-label col-md-12" style="font-weight:bold"> Loại đồ dùng</label>
+            <div class="col-md-12">
+                @Html.DisplayFor(model => model.LoaiDoDung.TenLoai)
+            </div>
+        </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.LoaiDoDung.TenLoai)
-        </dd>
+        <div class="form-group">
+            <label class="control-label col-md-12" style="font-weight:bold"> Tên đồ dùng</label>
+            <div class="col-md-12">
+                @Html.DisplayFor(model => model.TenDD)
+            </div>
+        </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.TenDD)
-        </dt>
+        <div class="form-group">
+            <label class="control-label col-md-12" style="font-weight:bold"> Giá </label>
+            <div class="col-md-12">
+                @Html.DisplayFor(model => model.Gia)
+            </div>
+        </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.TenDD)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Gia)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Gia)
-        </dd>
-
-        <dt style="max-width:200px">
-            @Html.Image("../../" + @Model.HinhDD, @Model.HinhDD, "100")
-        </dt>
-        <dd>
-            <a class=" btn btn-success btn-sm" href="@Url.Action("Them vao gio hang","Gio Hang", new {MaDD = @Model.MaDD})">
-                <span class="glyphicon glyphicon-shopping-cart"></span>
-                Them vao gio
-            </a>
-            <a class=" btn btn-success btn-sm" href="@Url.Action("Index","Index", new {MaDD = @Model.MaDD})">
-                Quay lai
-            </a>
-        </dd>
-    </dl>
+        <div class="form-group">
+            <label class="control-label col-md-12" style="font-weight:bold"> Số lượng </label>
+            <div class="col-md-12">
+                @Html.DisplayFor(model => model.SoLuong)
+            </div>
+        </div>
+        <dl style="padding-left:150px; padding-top:50px">
+            <dd>
+                
+                <a class=" btn btn-success btn-sm" style="width:100px" href="@Url.Action("Index2","NhanVien")">
+                    Quay lại
+                </a>
+            </dd>
+        </dl>
+    </div>
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.MaDD }) |

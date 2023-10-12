@@ -7,6 +7,11 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Doan.Models;
+using Doan.Controllers;
+using System.Security.Cryptography;
+using System.Text;
+using System.Data.Entity.Infrastructure;
+
 
 namespace Doan.Controllers
 {
@@ -82,17 +87,32 @@ namespace Doan.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "MaUser,TenUser,DiaChi,SDT,PhanQuyen,MatKhau")] User user)
-        {
+        public ActionResult Edit(User user)
+       {
             if (ModelState.IsValid)
             {
                 db.Entry(user).State = EntityState.Modified;
+                var MatKhau1 = GetMD5(user.MatKhau);
+                user.MatKhau = MatKhau1;
                 db.SaveChanges();
                 return Redirect("~/NhanVien/Index2");
             }
             return View(user);
         }
+        public static string GetMD5(string str)
+        {
+            MD5 md5 = new MD5CryptoServiceProvider();
+            byte[] fromData = Encoding.UTF8.GetBytes(str);
+            byte[] targetData = md5.ComputeHash(fromData);
+            string byte2String = null;
 
+            for (int i = 0; i < targetData.Length; i++)
+            {
+                byte2String += targetData[i].ToString("x2");
+
+            }
+            return byte2String;
+        }
         public ActionResult Edit_Admin(string id)
         {
             if (id == null)
@@ -112,13 +132,15 @@ namespace Doan.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit_Admin([Bind(Include = "MaUser,TenUser,DiaChi,SDT,PhanQuyen,MatKhau")] User user)
+        public ActionResult Edit_Admin(User user)
         {
             if (ModelState.IsValid)
             {
                 db.Entry(user).State = EntityState.Modified;
+                var MatKhau1 = GetMD5(user.MatKhau);
+                user.MatKhau = MatKhau1;
                 db.SaveChanges();
-                return Redirect("~/NhanVien/Index2");
+                return Redirect("~/DoDungs/Index2");
             }
             return View(user);
         }

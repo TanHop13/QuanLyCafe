@@ -33,7 +33,6 @@ namespace Doan.Models
 
         public int? SoLuong { get; set; }
 
-        [StringLength(50)]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ChiTietHoaDon> ChiTietHoaDons { get; set; }
 

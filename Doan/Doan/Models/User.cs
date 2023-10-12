@@ -32,7 +32,6 @@ namespace Doan.Models
 
         public int PhanQuyen { get; set; }
 
-        [StringLength(30)]
         public string MatKhau { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

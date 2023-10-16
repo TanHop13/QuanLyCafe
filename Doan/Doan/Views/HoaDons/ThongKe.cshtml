@@ -1,9 +1,42 @@
-﻿
+﻿@*@model Doan.Models.HoaDon*@
+@model List<Doan.Models.HoaDon>
+
+
 @{
     ViewBag.Title = "ThongKe";
     Layout = "~/Views/Shared/Layout_Menu.cshtml";
 }
 
-<h2>Thống kê</h2>
+<div style="width: 80%; margin: 0 auto;">
+    <canvas id="hoaDonChart"></canvas>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+        var data = @Html.Raw(Json.Encode(Model));
+        var months = data.map(x => x.Month);
+        var totals = data.map(x => x.Total);
+
+        var ctx = document.getElementById('hoaDonChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: months,
+                datasets: [{
+                    label: 'Total Amount',
+                    data: totals,
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+</script>
 
 

@@ -196,6 +196,7 @@
     <Compile Include="Models\HH_NCC.cs" />
     <Compile Include="Models\HoaDon.cs" />
     <Compile Include="Models\ImageHelper.cs" />
+    <Compile Include="Models\InvoiceChartData.cs" />
     <Compile Include="Models\KhachHang.cs" />
     <Compile Include="Models\LoaiDoDung.cs" />
     <Compile Include="Models\LoaiKhachHang.cs" />
@@ -290,6 +291,9 @@
     <Content Include="Views\DoDungs\Index_Cart.cshtml" />
     <Content Include="Views\DoDungs\Payment.cshtml" />
     <Content Include="Views\HoaDons\ThongKe.cshtml" />
+    <Content Include="Views\HoaDons\Index_Admin.cshtml" />
+    <Content Include="Views\HoaDons\Details_Admin.cshtml" />
+    <Content Include="Views\HoaDons\Delete_Admin.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

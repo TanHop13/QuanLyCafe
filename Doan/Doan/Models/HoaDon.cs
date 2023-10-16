@@ -19,8 +19,7 @@ namespace Doan.Models
         [StringLength(10)]
         public string MaHD { get; set; }
 
-        [Column(TypeName = "date")]
-        public DateTime? NgayTaoHD { get; set; }
+        public DateTime NgayTaoHD { get; set; }
 
         [Column(TypeName = "money")]
         public decimal? TongTien { get; set; }

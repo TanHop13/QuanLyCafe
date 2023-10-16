@@ -1,10 +1,13 @@
-﻿
+﻿@model Doan.Models.HoaDon
+
 @{
-    ViewBag.Title = "Details";
-    Layout = "~/Views/Shared/Layout_Menu_NhanVien.cshtml";
+    ViewBag.Title = "Delete_Admin";
+    Layout = "~/Views/Shared/Layout_Menu.cshtml";
 }
 
-<h2>CHI TIẾT HÓA ĐƠN</h2>
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
 <div>
     <h4>Hóa Đơn</h4>
     <hr />
@@ -36,7 +39,14 @@
             @Html.DisplayFor(model => model.TongTien)
         </div>
     </div>
+
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-actions" style="padding-left:420px">
+            <input type="submit" value="Delete" class="btn btn-default" style="background-color:red" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
 </div>
-<p>
-    @Html.ActionLink("Back to List", "Index")
-</p>

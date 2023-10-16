@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Doan.Models.HoaDon>
+
+@{
+    ViewBag.Title = "Index_Admin";
+    Layout = "~/Views/Shared/Layout_Menu.cshtml";
+}
+
+<h2>THÔNG TIN HÓA ĐƠN</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            <h4> Tên khách hàng</h4>
+        </th>
+        <th>
+            <h4> Tên nhân viên</h4>
+        </th>
+        <th>
+            <h4> Ngày tạo hóa đơn</h4>
+        </th>
+        <th>
+            <h4> Tổng tiền</h4>
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.KhachHang.TenKH)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.User.TenUser)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NgayTaoHD)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TongTien)
+            </td>
+            <td>
+                @Html.ActionLink("Details", "Details_Admin", new { id = item.MaHD }) |
+                @Html.ActionLink("Delete", "Delete_Admin", new { id = item.MaHD })
+            </td>
+        </tr>
+    }
+
+</table>
+

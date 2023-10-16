@@ -5,44 +5,43 @@
     Layout = "~/Views/Shared/Layout_Menu.cshtml";
 }
 
-<h2>Delete</h2>
+
+<h2>XÓA KHÁCH HÀNG</h2>
 
 <h3>Are you sure you want to delete this?</h3>
 <div>
-    <h4>KhachHang</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.LoaiKhachHang.TenLoai)
-        </dt>
+    <div>
+        <h4>Khách Hàng</h4>
+        <hr />
+        <div class="form-group">
+            <label class="control-label col-md-3" style="font-weight:bold"> Tên khách hàng</label>
+            <div class="col-md-4">
+                @Html.DisplayFor(model => model.TenKH)
+            </div>
+        </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.LoaiKhachHang.TenLoai)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.TenKH)
-        </dt>
+        <div class="form-group">
+            <label class="control-label col-md-3" style="font-weight:bold"> Loại khách hàng</label>
+            <div class="col-md-4">
+                @Html.DisplayFor(model => model.LoaiKhachHang.TenLoai)
+            </div>
+        </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.TenKH)
-        </dd>
+        <div class="form-group">
+            <label class="control-label col-md-3" style="font-weight:bold"> Số điện thoại </label>
+            <div class="col-md-4">
+                @Html.DisplayFor(model => model.SDT)
+            </div>
+        </div>
+    </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.SDT)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.SDT)
-        </dd>
-
-    </dl>
-
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
+        <div class="form-actions" style="padding-left:420px">
+            <input type="submit" value="Delete" class="btn btn-default" style="background-color:red" /> |
             @Html.ActionLink("Back to List", "Index")
         </div>
     }

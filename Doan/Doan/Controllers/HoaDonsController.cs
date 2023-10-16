@@ -20,9 +20,27 @@ namespace Doan.Controllers
             var hoaDons = db.HoaDons.Include(h => h.KhachHang).Include(h => h.User);
             return View(hoaDons.ToList());
         }
+        public ActionResult Index_Admin()
+        {
+            var hoaDons = db.HoaDons.Include(h => h.KhachHang).Include(h => h.User);
+            return View(hoaDons.ToList());
+        }
 
         // GET: HoaDons/Details/5
         public ActionResult Details(string id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            HoaDon hoaDon = db.HoaDons.Find(id);
+            if (hoaDon == null)
+            {
+                return HttpNotFound();
+            }
+            return View(hoaDon);
+        }
+        public ActionResult Details_Admin(string id)
         {
             if (id == null)
             {
@@ -112,6 +130,19 @@ namespace Doan.Controllers
             }
             return View(hoaDon);
         }
+        public ActionResult Delete_Admin(string id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            HoaDon hoaDon = db.HoaDons.Find(id);
+            if (hoaDon == null)
+            {
+                return HttpNotFound();
+            }
+            return View(hoaDon);
+        }
 
         // POST: HoaDons/Delete/5
         [HttpPost, ActionName("Delete")]
@@ -135,7 +166,14 @@ namespace Doan.Controllers
 
         public ActionResult ThongKe()
         {
-            return View();  
+            var results = db.HoaDons.GroupBy(x => x.NgayTaoHD.Month)
+            .Select(group => new
+       {
+           Month = group.Key,
+           Total = group.Sum(x => x.TongTien)
+       })
+       .ToList();
+            return View();
         }
     }
 }

@@ -5,37 +5,35 @@
     Layout = "~/Views/Shared/Layout_Menu.cshtml";
 }
 
-<h2>Details</h2>
-<div>
-    <div class="form-group">
-        <label class="control-label col-md-5" style="font-weight:bold">Loại khách hàng</label>
-        <div class="col-md-5">
-            @Html.DisplayFor(model => model.LoaiKhachHang)
-        </div>
-    </div>
+<h2>THÔNG TIN CHI TIẾT</h2>
 
+<div>
+    <h4>Khách Hàng</h4>
+    <hr />
     <div class="form-group">
-        <label class="control-label col-md-5" style="font-weight:bold">Tên khách hàng</label>
-        <div class="col-md-5">
+        <label class="control-label col-md-3" style="font-weight:bold"> Tên khách hàng</label>
+        <div class="col-md-4">
             @Html.DisplayFor(model => model.TenKH)
         </div>
     </div>
 
+
     <div class="form-group">
-        <label class="control-label col-md-5" style="font-weight:bold"> SĐT </label>
-        <div class="col-md-5">
+        <label class="control-label col-md-3" style="font-weight:bold"> Loại khách hàng</label>
+        <div class="col-md-4">
+            @Html.DisplayFor(model => model.LoaiKhachHang.TenLoai)
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-3" style="font-weight:bold"> Số điện thoại </label>
+        <div class="col-md-4">
             @Html.DisplayFor(model => model.SDT)
         </div>
     </div>
 </div>
-    <dl style="padding-left:500px; padding-top:50px">
-        <dd>
-            <a class=" btn btn-success btn-sm" style="width:100px" href="@Url.Action("Index","KhachHang_Admin")">
-                Quay lại
-            </a>
-        </dd>
-    </dl>
-    <p>
-        @Html.ActionLink("Edit", "Edit", new { id = Model.MaKH }) |
-        @Html.ActionLink("Back to List", "Index")
-    </p>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MaKH }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+

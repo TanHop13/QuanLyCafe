@@ -6,8 +6,8 @@
 <html>
 <head>
     @{var user = Session["User"] as Doan.Models.User;}
-    <title>About</title>
     <!-- basic -->
+    <title>Index</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,7 +15,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
     <!-- site metas -->
-    <title>About</title>
+    <title>Doze Cafe</title>
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -24,7 +24,7 @@
     <!-- style css -->
     <link rel="stylesheet" type="text/css" href="~/Web/html/css/style.css">
     <!-- Responsive-->
-    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="~/Web/html/css/responsive.css">
     <!-- fevicon -->
     <link rel="icon" href="~/Web/html/images/fevicon.png" type="image/gif" />
     <!-- font css -->
@@ -76,102 +76,102 @@
                                     @Html.ActionLink("Đăng Xuất", "SignOut", "Index")
                                 }
                                 </ul>
+                            </div>
+                        </form>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <!-- header section end -->
+        <!-- about section start -->
+        <div class="about_section layout_padding">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h1 class="about_taital">Thông tin về quán coffee</h1>
+                            <div class="bulit_icon"><img src="~/Web/html/images/bulit-icon.png"></div>
                         </div>
-                    </form>
-                </div>
-            </nav>
-        </div>
-    </div>
-    <!-- header section end -->
-    <!-- about section start -->
-    <div class="about_section layout_padding">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <h1 class="about_taital">Thông tin về quán coffee</h1>
-                    <div class="bulit_icon"><img src="~/Web/html/images/bulit-icon.png"></div>
-                </div>
-            </div>
-            <div class="about_section_2 layout_padding">
-                <div class="image_iman"><img src="~/Web/html/images/about-img.png" class="about_img"></div>
-                <div class="about_taital_box">
-                    <h1 class="about_taital_1"> Một số thông tin </h1>
-                    <p class=" about_text"> Quán đã được thành lập trong nhiều năm với nhiều sự kiện, khuyến mãi,... </p>
-                    <div class="readmore_btn"><a href="#">Read More</a></div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- about section end -->
-    <!-- footer section start -->
-    <div class="footer_section layout_padding">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <h1 class="address_text">Address</h1>
-                    <p class="footer_text"> 371 Nguyễn Kiệm, phường 3, quận Gò Vấp, tp Hồ Chí Minh </p>
-                    <div class="location_text">
-                        <ul>
-                            <li>
-                                <a href="#">
-                                    <i class="fa fa-phone" aria-hidden="true"></i><span class="padding_left_10">+84 975757994</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <i class="fa fa-phone" aria-hidden="true"></i><span class="padding_left_10">+84 339022497</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <i class="fa fa-envelope" aria-hidden="true"></i><span class="padding_left_10">2051052050hoa@ou.edu.vn</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <i class="fa fa-envelope" aria-hidden="true"></i><span class="padding_left_10">2051052052hop@ou.edu.vn</span>
-                                </a>
-                            </li>
-                        </ul>
                     </div>
-                    <div class="form-group">
-                        <textarea class="update_mail" placeholder="Your Email" rows="5" id="comment" name="Your Email"></textarea>
-                        <div class="subscribe_bt"><a href="#"><img src="~/Web/html/images/teligram-icon.png"></a></div>
+                    <div class="about_section_2 layout_padding">
+                        <div class="image_iman"><img src="~/Web/html/images/about-img.png" class="about_img"></div>
+                        <div class="about_taital_box">
+                            <h1 class="about_taital_1"> Một số thông tin </h1>
+                            <p class=" about_text"> Quán đã được thành lập trong nhiều năm với nhiều sự kiện, khuyến mãi,... </p>
+                            <div class="readmore_btn"><a href="#">Read More</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <!-- about section end -->
+        <!-- footer section start -->
+        <div class="footer_section layout_padding">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1 class="address_text">Address</h1>
+                        <p class="footer_text"> 371 Nguyễn Kiệm, phường 3, quận Gò Vấp, tp Hồ Chí Minh </p>
+                        <div class="location_text">
+                            <ul>
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-phone" aria-hidden="true"></i><span class="padding_left_10">+84 975757994</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-phone" aria-hidden="true"></i><span class="padding_left_10">+84 339022497</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-envelope" aria-hidden="true"></i><span class="padding_left_10">2051052050hoa@ou.edu.vn</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-envelope" aria-hidden="true"></i><span class="padding_left_10">2051052052hop@ou.edu.vn</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="update_mail" placeholder="Your Email" rows="5" id="comment" name="Your Email"></textarea>
+                            <div class="subscribe_bt"><a href="#"><img src="~/Web/html/images/teligram-icon.png"></a></div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- footer section end -->
-    <!-- copyright section start -->
-    <div class="copyright_section">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 col-sm-12">
-                    <p class="copyright_text">2020 All Rights Reserved. Design by Tan Hop</p>
-                </div>
-                <div class="col-lg-6 col-sm-12">
-                    <div class="footer_social_icon">
-                        <ul>
-                            <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                        </ul>
+        <!-- footer section end -->
+        <!-- copyright section start -->
+        <div class="copyright_section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-sm-12">
+                        <p class="copyright_text">2020 All Rights Reserved. Design by Tan Hop</p>
+                    </div>
+                    <div class="col-lg-6 col-sm-12">
+                        <div class="footer_social_icon">
+                            <ul>
+                                <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- copyright section end -->
-    <!-- Javascript files-->
-    <script src="~/Web/html//jquery.min.js"></script>
-    <script src="~/Web/html/js/popper.min.js"></script>
-    <script src="~/Web/html/js/bootstrap.bundle.min.js"></script>
-    <script src="~/Web/html/js/jquery-3.0.0.min.js"></script>
-    <script src="~/Web/html/js/plugin.js"></script>
-    <!-- sidebar -->
-    <script src="~/Web/html/js/jquery.mCustomScrollbar.concat.min.js"></script>
-    <script src="~/Web/html/js/custom.js"></script>
-</body>
+        <!-- copyright section end -->
+        <!-- Javascript files-->
+        <script src="~/Web/html/js/jquery.min.js"></script>
+        <script src="~/Web/html/js/popper.min.js"></script>
+        <script src="~/Web/html/js/bootstrap.bundle.min.js"></script>
+        <script src="~/Web/html/js/jquery-3.0.0.min.js"></script>
+        <script src="~/Web/html/js/plugin.js"></script>
+        <!-- sidebar -->
+        <script src="~/Web/html/js/jquery.mCustomScrollbar.concat.min.js"></script>
+        <script src="~/Web/html/js/custom.js"></script>
+    </body>
 </html>

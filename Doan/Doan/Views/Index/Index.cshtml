@@ -3,11 +3,6 @@
     Layout = null;
 }
 
-@section jsfooter{
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initMap&v=weekly"
-            defer></script>
-    }
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -75,14 +70,16 @@
                                     {
                                     <li>
                                         @Html.ActionLink("Login", "Login", "Index")
-                                        @Html.ActionLink("Signup", "Signup", "Index")
+                                        @*@Html.ActionLink("Signup", "Signup", "Index")*@
                                     </li>
-                                }
-                                else
-                                {
-                                    <a href="#" , style="color:black">Xin chào: @user.TenUser</a>
-                                    @Html.ActionLink("Đăng Xuất", "SignOut", "Index")
-                                }
+                                    }
+                                    else
+                                     {
+                                     <li>
+                                <a href="#" , style="color:black">Xin chào: @user.TenUser</a>
+                                @Html.ActionLink("Đăng Xuất", "SignOut", "Index")
+                                    </li>
+                                    }
 
                                 </ul>
                             </div>
@@ -182,25 +179,25 @@
                                         <div class="coffee_img"><img src="~/image/CafeDen.jpg" style="max-width:300px; height:300px"></div>
                                         <h3 class="types_text">COFFEE</h3>
                                         <p class="looking_text"> Thức uống bổ sung tỉnh táo </p>
-                                        <div class="read_bt"><a href="~/Views/DoDungs/Index">Read More</a></div>
+                                        <div class="read_bt"><a href="~/DoDungs/Index">Read More</a></div>
                                     </div>
                                     <div class="col-lg-3 col-md-6">
                                         <div class="coffee_img"><img src="~/image/CocaCola.jpg" style="max-width:300px; height:300px"></div>
                                         <h3 class="types_text">Coca Cola</h3>
                                         <p class="looking_text"> Bùng nổ hương vị </p>
-                                        <div class="read_bt"><a href="~/Views/DoDungs/Index">Read More</a></div>
+                                        <div class="read_bt"><a href="~/DoDungs/Index">Read More</a></div>
                                     </div>
                                     <div class="col-lg-3 col-md-6">
                                         <div class="coffee_img"><img src="~/image/NuocDua.png" style="max-width:300px; height:300px"></div>
                                         <h3 class="types_text">Nước dừa</h3>
                                         <p class="looking_text"> Đậm đà hương vị </p>
-                                        <div class="read_bt"><a href="~/Views/DoDungs/Index">Read More</a></div>
+                                        <div class="read_bt"><a href="~/DoDungs/Index">Read More</a></div>
                                     </div>
                                     <div class="col-lg-3 col-md-6">
                                         <div class="coffee_img"><img src="~/image/BanhCom.jpg" style="max-width:300px; height:300px"></div>
                                         <h3 class="types_text">Đồ ăn vặt</h3>
                                         <p class="looking_text"> Thơm ngon từng miếng </p>
-                                        <div class="read_bt"><a href="~/Views/DoDungs/Index">Read More</a></div>
+                                        <div class="read_bt"><a href="~/DoDungs/Index">Read More</a></div>
                                     </div>
                                 </div>
                             </div>
@@ -212,28 +209,28 @@
                                         <div class="coffee_img"><img src="~/image/CafeDen.jpg" style="max-width:300px; height:300px"></div>
                                         <h3 class="types_text">COFFEE</h3>
                                         <p class="looking_text"> Thức uống bổ sung tỉnh táo </p>
-                                        <div class="read_bt"><a href="~/Views/DoDungs/Index">Read More</a></div>
+                                        <div class="read_bt"><a href="~/DoDungs/Index">Read More</a></div>
                                     </div>
 
                                     <div class="col-lg-3 col-md-6">
                                         <div class="coffee_img"><img src="~/image/NuocDua.png" style="max-width:300px; height:300px"></div>
                                         <h3 class="types_text">Nước dừa</h3>
                                         <p class="looking_text"> Đậm đà hương vị </p>
-                                        <div class="read_bt"><a href="~/Views/DoDungs/Index">Read More</a></div>
+                                        <div class="read_bt"><a href="~/DoDungs/Index">Read More</a></div>
                                     </div>
 
                                     <div class="col-lg-3 col-md-6">
                                         <div class="coffee_img"><img src="~/image/CocaCola.jpg" style="max-width:300px; height:300px"></div>
                                         <h3 class="types_text">Coca Cola</h3>
                                         <p class="looking_text"> Bùng nổ hương vị </p>
-                                        <div class="read_bt"><a href="~/Views/DoDungs/Index">Read More</a></div>
+                                        <div class="read_bt"><a href="~/DoDungs/Index">Read More</a></div>
                                     </div>
 
                                     <div class="col-lg-3 col-md-6">
                                         <div class="coffee_img"><img src="~/image/BanhCom.jpg" style="max-width:300px; height:300px"></div>
                                         <h3 class="types_text">Đồ ăn vặt</h3>
                                         <p class="looking_text"> Thơm ngon từng miếng </p>
-                                        <div class="read_bt"><a href="~/Views/DoDungs/Index">Read More</a></div>
+                                        <div class="read_bt"><a href="~/DoDungs/Index">Read More</a></div>
                                     </div>
                                 </div>
                             </div>
@@ -246,28 +243,28 @@
                                         <div class="coffee_img"><img src="~/image/CocaCola.jpg" style="max-width:300px; height:300px"></div>
                                         <h3 class="types_text">Coca Cola</h3>
                                         <p class="looking_text"> Bùng nổ hương vị </p>
-                                        <div class="read_bt"><a href="~/Views/DoDungs/Index">Read More</a></div>
+                                        <div class="read_bt"><a href="~/DoDungs/Index">Read More</a></div>
                                     </div>
 
                                     <div class="col-lg-3 col-md-6">
                                         <div class="coffee_img"><img src="~/image/NuocDua.png" style="max-width:300px; height:300px"></div>
                                         <h3 class="types_text">Nước dừa</h3>
                                         <p class="looking_text"> Đậm đà hương vị </p>
-                                        <div class="read_bt"><a href="~/Views/DoDungs/Index">Read More</a></div>
+                                        <div class="read_bt"><a href="~/DoDungs/Index">Read More</a></div>
                                     </div>
 
                                     <div class="col-lg-3 col-md-6">
                                         <div class="coffee_img"><img src="~/image/CafeDen.jpg" style="max-width:300px; height:300px"></div>
                                         <h3 class="types_text">COFFEE</h3>
                                         <p class="looking_text"> Thức uống bổ sung tỉnh táo </p>
-                                        <div class="read_bt"><a href="~/Views/DoDungs/Index">Read More</a></div>
+                                        <div class="read_bt"><a href="~/DoDungs/Index">Read More</a></div>
                                     </div>
 
                                     <div class="col-lg-3 col-md-6">
                                         <div class="coffee_img"><img src="~/image/BanhCom.jpg" style="max-width:300px; height:300px"></div>
                                         <h3 class="types_text">Đồ ăn vặt</h3>
                                         <p class="looking_text"> Thơm ngon từng miếng </p>
-                                        <div class="read_bt"><a href="~/Views/DoDungs/Index">Read More</a></div>
+                                        <div class="read_bt"><a href="~/DoDungs/Index">Read More</a></div>
                                     </div>
                                 </div>
                             </div>
@@ -302,6 +299,7 @@
                 </div>
             </div>
         </div>
+
         <!-- about section end -->
         <!-- client section start -->
         <div class="client_section layout_padding">

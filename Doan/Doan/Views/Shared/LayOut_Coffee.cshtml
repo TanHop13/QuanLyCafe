@@ -47,7 +47,7 @@
                             <a class="nav-link" href="~/Index/About">About</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="~/Index/Coffee">Coffees</a>
+                            <a class="nav-link" href="~/DoDungs/Index">Coffees</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="~/Index/Blog">Blog</a>
@@ -65,12 +65,14 @@
                                     <li>
                                         @Html.ActionLink("Login", "Login", "Index")
                                     </li>
-                                }
-                                else
-                                {
-                                    <a href="#" , style="color:black">Xin chào: @user.TenUser</a>
-                                    @Html.ActionLink("Đăng Xuất", "SignOut", "Index")
-                                }
+                                    }
+                                    else
+                                    {
+                                    <li>
+                                        <a href="#" , style="color:black">Xin chào: @user.TenUser</a>
+                                        @Html.ActionLink("Đăng Xuất", "SignOut", "Index")
+                                    </li>
+                                     }
                                 </ul>
                             </div>
                         </form>
@@ -245,7 +247,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6 col-sm-12">
-                        <p class="copyright_text">2020 All Rights Reserved. Design by Tan Hop</a></p>
+                        <p class="copyright_text">2020 All Rights Reserved. Design by Tan Hop</p>
                     </div>
                     <div class="col-lg-6 col-sm-12">
                         <div class="footer_social_icon">

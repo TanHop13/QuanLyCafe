@@ -50,9 +50,13 @@
                 @Html.Image("../" + item.HinhDD, "alt", "100")
 
             </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.MaDD }) |
-                @Html.ActionLink("Details", "Details", new { id = item.MaDD }) |
+            <td class="btn btn-info" style="margin:30px 0 20px 5px">
+                @Html.ActionLink("Edit", "Edit", new { id = item.MaDD })
+            </td>
+            <td class="btn btn-warning" style="margin:30px 0 20px 5px">
+                @Html.ActionLink("Details", "Details", new { id = item.MaDD })
+            </td>
+            <td class="btn btn-danger" style="margin:30px 0 20px 5px">
                 @Html.ActionLink("Delete", "Delete", new { id = item.MaDD })
             </td>
         </tr>

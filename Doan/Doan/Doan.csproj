@@ -108,8 +108,12 @@
     <Content Include="image\jerry.jpg" />
     <Content Include="image\NuocDua.png" />
     <Content Include="image\NuocEpXoai.jpg" />
+    <Content Include="image\SinhToDau.jpg" />
+    <Content Include="image\SodaBacHa.jpg" />
+    <Content Include="image\SodaVietQuat.jpg" />
     <Content Include="image\SuaNuti.png" />
     <Content Include="image\Tom.png" />
+    <Content Include="image\tra-sua.jpeg" />
     <Content Include="Web\html\css\animate.min.css" />
     <Content Include="Web\html\css\bootstrap-grid.css" />
     <Content Include="Web\html\css\bootstrap-grid.min.css" />

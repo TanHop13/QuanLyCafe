@@ -6,8 +6,8 @@
 <html>
 <head>
     @{var user = Session["User"] as Doan.Models.User;}
+    <title>About</title>
     <!-- basic -->
-    <title>Index</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,7 +15,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
     <!-- site metas -->
-    <title>Doze Cafe</title>
+    <title>About</title>
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -24,7 +24,7 @@
     <!-- style css -->
     <link rel="stylesheet" type="text/css" href="~/Web/html/css/style.css">
     <!-- Responsive-->
-    <link rel="stylesheet" href="~/Web/html/css/responsive.css">
+    <link rel="stylesheet" href="css/responsive.css">
     <!-- fevicon -->
     <link rel="icon" href="~/Web/html/images/fevicon.png" type="image/gif" />
     <!-- font css -->
@@ -38,7 +38,7 @@
     <div class="header_section header_bg">
         <div class="container-fluid">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <a class="navbar-brand" href="index.html"><img src="~/Web/html/images/logo.png"></a>
+                <a class="navbar-brand" href="Index"><img src="~/Web/html/images/logo.png"></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -85,23 +85,23 @@
         <!-- header section end -->
         <!-- about section start -->
         <div class="about_section layout_padding">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <h1 class="about_taital">Thông tin về quán coffee</h1>
-                            <div class="bulit_icon"><img src="~/Web/html/images/bulit-icon.png"></div>
-                        </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1 class="about_taital">Thông tin về quán coffee</h1>
+                        <div class="bulit_icon"><img src="~/Web/html/images/bulit-icon.png"></div>
                     </div>
+                </div>
+                <div style="display:flex">
                     <div class="about_section_2 layout_padding">
-                        <div class="image_iman"><img src="~/Web/html/images/about-img.png" class="about_img"></div>
-                        <div class="about_taital_box">
-                            <h1 class="about_taital_1"> Một số thông tin </h1>
-                            <p class=" about_text"> Quán đã được thành lập trong nhiều năm với nhiều sự kiện, khuyến mãi,... </p>
-                            <div class="readmore_btn"><a href="#">Read More</a></div>
-                        </div>
+                        <div class="image_iman" style="padding-left: 100px; max-height:900px; max-width:700px"><img src="~/Web/html/images/about-img.png" class="about_img"></div>
+                    </div>
+                    <div class="about_img">
+                        <p>Quán coffee đã được thành lập được 2 năm với nhiều thành tựu như có được những nhân viên ưu tú, siêng năng, yêu công việc, thân thiện quý mến khách hàng. Có doanh thu cao khi vừa thành lập khoảng 6 tháng.</p>
                     </div>
                 </div>
             </div>
+        </div>
         <!-- about section end -->
         <!-- footer section start -->
         <div class="footer_section layout_padding">
@@ -153,7 +153,7 @@
                     <div class="col-lg-6 col-sm-12">
                         <div class="footer_social_icon">
                             <ul>
-                                <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                <li><a href="https://www.facebook.com/nguyentan.hop.37" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
                                 <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
                                 <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
                                 <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
@@ -165,7 +165,7 @@
         </div>
         <!-- copyright section end -->
         <!-- Javascript files-->
-        <script src="~/Web/html/js/jquery.min.js"></script>
+        <script src="~/Web/html//jquery.min.js"></script>
         <script src="~/Web/html/js/popper.min.js"></script>
         <script src="~/Web/html/js/bootstrap.bundle.min.js"></script>
         <script src="~/Web/html/js/jquery-3.0.0.min.js"></script>

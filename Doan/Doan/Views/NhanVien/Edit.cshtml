@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/Layout_Menu_NhanVien.cshtml";
 }
 
-<h2>Edit</h2>
+<h2>Chỉnh sửa</h2>
 
 @using (Html.BeginForm())
 {
@@ -48,7 +48,7 @@
             @Html.ValidationMessageFor(model => model.HinhDD, "", new { @class = "text-danger" })
         </div>
     </div>
-
+    <br />
     <div class="form-group">
         @Html.LabelFor(model => model.SoLuong, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
@@ -68,6 +68,3 @@
     @Html.ActionLink("Back to List", "Index")
 </div>
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>

@@ -42,8 +42,10 @@
             <td>
                 @Html.DisplayFor(modelItem => item.TongTien)
             </td>
-            <td>
-                @Html.ActionLink("Details", "Details_Admin", new { id = item.MaHD }) |
+            <td class="btn btn-warning" style="margin:30px 0 20px 5px">
+                @Html.ActionLink("Details", "Details_Admin", new { id = item.MaHD })
+            </td>
+            <td class="btn btn-danger" style="margin:30px 0 20px 5px">
                 @Html.ActionLink("Delete", "Delete_Admin", new { id = item.MaHD })
             </td>
         </tr>

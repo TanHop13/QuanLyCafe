@@ -5,7 +5,6 @@
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/Layout_Menu.cshtml";
 }
-
 <h2>Trang chi tiết sản phẩm</h2>
 <div style="display:flex">
     <div style="padding-left:100px">
@@ -44,8 +43,8 @@
         </div>
         <dl style="padding-left:150px; padding-top:50px">
             <dd>
-                
-                <a class=" btn btn-success btn-sm" style="width:100px" href="@Url.Action("Index2","NhanVien")">
+
+                <a class=" btn btn-success btn-sm" style="width:100px" href="@Url.Action("Index2","DoDungs")">
                     Quay lại
                 </a>
             </dd>
@@ -54,5 +53,5 @@
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.MaDD }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to List", "Index2")
 </p>

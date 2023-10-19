@@ -5,13 +5,12 @@
     Layout = "~/Views/Shared/Layout_Menu_NhanVien.cshtml";
 }
 
-<h2>CHỈNH SỬA</h2>
-
+<h2>Edit</h2>
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
 <div class="form-horizontal">
     <h4>Đồ dùng</h4>
     <hr />
@@ -49,15 +48,14 @@
             @Html.ValidationMessageFor(model => model.HinhDD, "", new { @class = "text-danger" })
         </div>
     </div>
-    <br />
+
     <div class="form-group">
-        <label class="control-label col-md-2"> Số lượng </label>
+        @Html.LabelFor(model => model.SoLuong, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @Html.EditorFor(model => model.SoLuong, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.SoLuong, "", new { @class = "text-danger" })
         </div>
     </div>
-
     <br />
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
@@ -66,11 +64,10 @@
     </div>
 </div>
 }
-
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
 
-<script src="~/Scripts/jquery-1.10.2.min.js"></script>
-<script src="~/Scripts/jquery.validate.min.js"></script>
-<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

@@ -47,9 +47,13 @@
             <td>
                 @Html.DisplayFor(modelItem => item.MatKhau)
             </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.MaUser }) |
-                @Html.ActionLink("Details", "Details", new { id = item.MaUser }) |
+            <td class="btn btn-info" style="margin:30px 0 20px 5px">
+                @Html.ActionLink("Edit", "Edit", new { id = item.MaUser })
+            </td>
+            <td class="btn btn-warning" style="margin:30px 0 20px 5px">
+                @Html.ActionLink("Details", "Details", new { id = item.MaUser })
+            </td>
+            <td class="btn btn-danger" style="margin:30px 0 20px 5px">
                 @Html.ActionLink("Delete", "Delete", new { id = item.MaUser })
             </td>
         </tr>

@@ -12,8 +12,8 @@ namespace Doan.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public User()
         {
-            CaLamViecs = new HashSet<CaLamViec>();
             HoaDons = new HashSet<HoaDon>();
+            NgayLams = new HashSet<NgayLam>();
             PhanHoiSuCoes = new HashSet<PhanHoiSuCo>();
         }
 
@@ -34,11 +34,14 @@ namespace Doan.Models
 
         public string MatKhau { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CaLamViec> CaLamViecs { get; set; }
+        [StringLength(50)]
+        public string activate { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<HoaDon> HoaDons { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<NgayLam> NgayLams { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PhanHoiSuCo> PhanHoiSuCoes { get; set; }

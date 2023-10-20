@@ -1,0 +1,56 @@
+﻿@model IEnumerable<Doan.Models.NgayLam>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout_Menu.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            <h5>Mã NL</h5>
+        </th>
+        <th>
+            <h5>Ca làm việc</h5>
+        </th>
+        <th>
+            <h5>Tên nhân viên</h5>
+        </th>
+        <th>
+            <h5>Ngày làm việc</h5>
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaNL)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CaLamViec.CaLamViec1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.User.TenUser)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NgayLamViec)
+        </td>
+        <td class="btn btn-info" style="margin-left: 20px; margin-right: 20px; margin-top: 5px; margin-bottom: 5px">
+            @Html.ActionLink("Edit", "Edit", new { id = item.MaNL })
+        </td>
+        <td class="btn btn-warning" style="margin-left:20px; margin-right:20px; margin-top:5px; margin-bottom:5px">
+            @Html.ActionLink("Details", "Details", new { id = item.MaNL })
+        </td>
+        <td class="btn btn-danger" style="margin-left: 20px; margin-right: 0; margin-top: 5px; margin-bottom: 5px">
+            @Html.ActionLink("Delete", "Delete", new { id = item.MaNL })
+        </td>
+    </tr>
+}
+
+</table>

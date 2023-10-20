@@ -55,18 +55,38 @@ namespace Doan.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MaUser,TenUser,DiaChi,SDT,PhanQuyen,MatKhau")] User user)
+        public ActionResult Create([Bind(Include = "MaUser,TenUser,DiaChi,SDT,PhanQuyen,MatKhau,activate")] User user)
         {
             if (ModelState.IsValid)
             {
-                db.Users.Add(user);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                var check = db.Users.FirstOrDefault(s => s.TenUser == user.TenUser);
+                if (check == null)
+                {
+                    user.MatKhau = GetMD5(user.MatKhau);
+                    db.Configuration.ValidateOnSaveEnabled = false;
+                    db.Users.Add(user);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
             }
 
             return View(user);
         }
 
+        public static string GetMD5(string str)
+        {
+            MD5 md5 = new MD5CryptoServiceProvider();
+            byte[] fromData = Encoding.UTF8.GetBytes(str);
+            byte[] targetData = md5.ComputeHash(fromData);
+            string byte2String = null;
+
+            for (int i = 0; i < targetData.Length; i++)
+            {
+                byte2String += targetData[i].ToString("x2");
+
+            }
+            return byte2String;
+        }
         // GET: Users/Edit/5
         public ActionResult Edit(string id)
         {
@@ -99,20 +119,7 @@ namespace Doan.Controllers
             }
             return View(user);
         }
-        public static string GetMD5(string str)
-        {
-            MD5 md5 = new MD5CryptoServiceProvider();
-            byte[] fromData = Encoding.UTF8.GetBytes(str);
-            byte[] targetData = md5.ComputeHash(fromData);
-            string byte2String = null;
 
-            for (int i = 0; i < targetData.Length; i++)
-            {
-                byte2String += targetData[i].ToString("x2");
-
-            }
-            return byte2String;
-        }
         public ActionResult Edit_Admin(string id)
         {
             if (id == null)

@@ -144,7 +144,7 @@ namespace Doan.Controllers
             DoDung doDung = db.DoDungs.Find(id);
             db.DoDungs.Remove(doDung);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Index2");
         }
 
         protected override void Dispose(bool disposing)

@@ -22,6 +22,7 @@ namespace Doan.Models
         public virtual DbSet<KhachHang> KhachHangs { get; set; }
         public virtual DbSet<LoaiDoDung> LoaiDoDungs { get; set; }
         public virtual DbSet<LoaiKhachHang> LoaiKhachHangs { get; set; }
+        public virtual DbSet<NgayLam> NgayLams { get; set; }
         public virtual DbSet<NhaCungCap> NhaCungCaps { get; set; }
         public virtual DbSet<PhanHoiSuCo> PhanHoiSuCoes { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
@@ -29,6 +30,11 @@ namespace Doan.Models
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<CaLamViec>()
+                .HasMany(e => e.NgayLams)
+                .WithRequired(e => e.CaLamViec)
+                .WillCascadeOnDelete(false);
+
             modelBuilder.Entity<DoDung>()
                 .Property(e => e.Gia)
                 .HasPrecision(18, 0);
@@ -82,7 +88,7 @@ namespace Doan.Models
                 .IsUnicode(false);
 
             modelBuilder.Entity<User>()
-                .HasMany(e => e.CaLamViecs)
+                .HasMany(e => e.NgayLams)
                 .WithRequired(e => e.User)
                 .WillCascadeOnDelete(false);
         }

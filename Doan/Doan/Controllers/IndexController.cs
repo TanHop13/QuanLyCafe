@@ -69,8 +69,8 @@ namespace Doan.Controllers
 
 
                 var mk = GetMD5(user.MatKhau);
-                var checkAdmin = db.Users.SingleOrDefault(s => s.MaUser.Equals(user.MaUser) && s.MatKhau.Equals(mk) && s.PhanQuyen == 1);
-                var checkNV = db.Users.SingleOrDefault(s => s.MaUser.Equals(user.MaUser) && s.MatKhau.Equals(mk) && s.PhanQuyen == 0);
+                var checkAdmin = db.Users.SingleOrDefault(s => s.MaUser.Equals(user.MaUser) && s.MatKhau.Equals(mk) && s.PhanQuyen == 1 && s.activate=="Yes");
+                var checkNV = db.Users.SingleOrDefault(s => s.MaUser.Equals(user.MaUser) && s.MatKhau.Equals(mk) && s.PhanQuyen == 0 && s.activate == "Yes");
                 if (checkAdmin != null)
                 {
                     Session["User"] = checkAdmin;

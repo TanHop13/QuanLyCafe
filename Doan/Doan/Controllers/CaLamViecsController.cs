@@ -17,8 +17,7 @@ namespace Doan.Controllers
         // GET: CaLamViecs
         public ActionResult Index()
         {
-            var caLamViecs = db.CaLamViecs.Include(c => c.User);
-            return View(caLamViecs.ToList());
+            return View(db.CaLamViecs.ToList());
         }
 
         // GET: CaLamViecs/Details/5
@@ -39,7 +38,6 @@ namespace Doan.Controllers
         // GET: CaLamViecs/Create
         public ActionResult Create()
         {
-            ViewBag.MaUser = new SelectList(db.Users, "MaUser", "TenUser");
             return View();
         }
 
@@ -48,7 +46,7 @@ namespace Doan.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MaCLV,CaLamViec1,GioBD,GioKT,MaUser")] CaLamViec caLamViec)
+        public ActionResult Create([Bind(Include = "MaCLV,CaLamViec1,GioBD,GioKT")] CaLamViec caLamViec)
         {
             if (ModelState.IsValid)
             {
@@ -57,7 +55,6 @@ namespace Doan.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.MaUser = new SelectList(db.Users, "MaUser", "TenUser", caLamViec.MaUser);
             return View(caLamViec);
         }
 
@@ -73,7 +70,6 @@ namespace Doan.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.MaUser = new SelectList(db.Users, "MaUser", "TenUser", caLamViec.MaUser);
             return View(caLamViec);
         }
 
@@ -82,7 +78,7 @@ namespace Doan.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "MaCLV,CaLamViec1,GioBD,GioKT,MaUser")] CaLamViec caLamViec)
+        public ActionResult Edit([Bind(Include = "MaCLV,CaLamViec1,GioBD,GioKT")] CaLamViec caLamViec)
         {
             if (ModelState.IsValid)
             {
@@ -90,7 +86,6 @@ namespace Doan.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.MaUser = new SelectList(db.Users, "MaUser", "TenUser", caLamViec.MaUser);
             return View(caLamViec);
         }
 

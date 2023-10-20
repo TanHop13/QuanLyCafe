@@ -6,7 +6,57 @@
     Layout = "~/Views/Shared/Layout_Menu_NhanVien.cshtml";
 }
 
-<h2>Trang chi tiết sản phẩm</h2>
+<h2>Details</h2>
+
+@*<div>
+    <h4>DoDung</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.LoaiDoDung.TenLoai)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LoaiDoDung.TenLoai)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TenDD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenDD)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Gia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Gia)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SoLuong)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoLuong)
+        </dd>
+
+        <dt style="max-width:200px">
+            @Html.Image("../../" + @Model.HinhDD, @Model.HinhDD, "100")
+        </dt>
+        <dd>
+            <a class=" btn btn-success btn-sm" href="@Url.Action("AddItem","DoDungs", new {MaDD = Model.MaDD, SoLuong = 1, TenDD = Model.TenDD, Gia = Model.Gia, Image = Model.HinhDD})">
+                <span class="glyphicon glyphicon-shopping-cart"></span>
+                Gio Hang
+            </a>
+            <a class=" btn btn-success btn-sm" href="@Url.Action("Index2","NhanVien", new {MaDD = Model.MaDD})">
+                Quay lai
+            </a>
+        </dd>
+    </dl>
+</div>*@
 <div style="display:flex">
     <div style="padding-left:100px">
         <dl style="max-width:400px; max-height:400px">
@@ -44,7 +94,10 @@
         </div>
         <dl style="padding-left:150px; padding-top:50px">
             <dd>
-
+                <a class=" btn btn-success btn-sm" href="@Url.Action("AddItem","DoDungs", new {MaDD = Model.MaDD, SoLuong = 1, TenDD = Model.TenDD, Gia = Model.Gia, Image = Model.HinhDD})">
+                    <span class="glyphicon glyphicon-shopping-cart"></span>
+                    Gio Hang
+                </a>
                 <a class=" btn btn-success btn-sm" style="width:100px" href="@Url.Action("Index2","NhanVien")">
                     Quay lại
                 </a>
@@ -53,6 +106,6 @@
     </div>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.MaDD }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MaDD })
     @Html.ActionLink("Back to List", "Index2")
 </p>

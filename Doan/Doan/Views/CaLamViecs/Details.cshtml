@@ -1,0 +1,43 @@
+﻿@model Doan.Models.CaLamViec
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/Layout_Menu.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>CaLamViec</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CaLamViec1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CaLamViec1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GioBD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GioBD)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GioKT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GioKT)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MaCLV }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

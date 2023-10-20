@@ -186,6 +186,7 @@
     <Compile Include="Controllers\KhachHangsController.cs" />
     <Compile Include="Controllers\KhachHang_AdminController.cs" />
     <Compile Include="Controllers\LoaiDoDungsController.cs" />
+    <Compile Include="Controllers\NgayLamsController.cs" />
     <Compile Include="Controllers\NhaCungCapsController.cs" />
     <Compile Include="Controllers\NhanVienController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
@@ -205,6 +206,7 @@
     <Compile Include="Models\LoaiDoDung.cs" />
     <Compile Include="Models\LoaiKhachHang.cs" />
     <Compile Include="Models\Model_Login.cs" />
+    <Compile Include="Models\NgayLam.cs" />
     <Compile Include="Models\NhaCungCap.cs" />
     <Compile Include="Models\PhanHoiSuCo.cs" />
     <Compile Include="Models\sysdiagram.cs" />
@@ -298,6 +300,20 @@
     <Content Include="Views\HoaDons\Index_Admin.cshtml" />
     <Content Include="Views\HoaDons\Details_Admin.cshtml" />
     <Content Include="Views\HoaDons\Delete_Admin.cshtml" />
+    <Content Include="Views\CaLamViecs\Create.cshtml" />
+    <Content Include="Views\CaLamViecs\Delete.cshtml" />
+    <Content Include="Views\CaLamViecs\Details.cshtml" />
+    <Content Include="Views\CaLamViecs\Edit.cshtml" />
+    <Content Include="Views\CaLamViecs\Index.cshtml" />
+    <Content Include="Views\NgayLams\Create.cshtml" />
+    <Content Include="Views\NgayLams\Delete.cshtml" />
+    <Content Include="Views\NgayLams\Details.cshtml" />
+    <Content Include="Views\NgayLams\Edit.cshtml" />
+    <Content Include="Views\NgayLams\Index.cshtml" />
+    <Content Include="Views\NgayLams\NhanVien.cshtml" />
+    <Content Include="Views\NgayLams\Details_NhanVien.cshtml" />
+    <Content Include="Views\NgayLams\Edit_NhanVien.cshtml" />
+    <Content Include="Views\NgayLams\Delete_NhanVien.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

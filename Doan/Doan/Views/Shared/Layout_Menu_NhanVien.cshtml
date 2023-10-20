@@ -50,6 +50,12 @@
                     <li class="nav-item">
                         <a class="nav-link active" href="~/HoaDons/Index">Hóa đơn</a>
                     </li>
+                    <li class="nav-item">
+                        <a href="@Url.Action("NhanVien", "NgayLams", new {id = @user.MaUser})" , class="navbar-brand">Phân công</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="~/DoDungs/Index_Cart">Giỏ hàng</a>
+                    </li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
                     <div class="login_bt">

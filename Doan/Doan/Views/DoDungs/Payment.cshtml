@@ -24,7 +24,7 @@
             {
                 <tr>
                     <td>
-                        <input name="MaDD" value="@item.MaDD" />
+                        <input class="checkbox nav-link disabled aria-disabled=true" name="MaDD" value="@item.MaDD" />
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.TenDD)
@@ -55,37 +55,41 @@
         @using (Html.BeginForm("Confirm", "DoDungs", FormMethod.Post))
         {
             <div class="form-group">
-                <label>MaHD</label>
-                <input type="text" name="MaHD" required class="form-control" />
+                <label>Mã Hóa Đơn</label>
+                <input style="margin-left:30px" type="text" name="MaHD" required class="form-control" />
             </div>
+            <br />
             <div class="form-group">
-                <label>MaKH</label>
-                <input type="text" name="MaKH" required class="form-control" />
+                <label>Mã Khách Hàng</label>
+                <input style="margin-left:10px" type="text" name="MaKH" required class="form-control" />
             </div>
-
+            <br />
             <div class="form-group">
-                <label>MaUser</label>
-                <input type="text" name="MaUser" value="@user.MaUser" />
+                <label>Mã Nhân Viên</label>
+                <input style="margin-left:10px" type="text" name="MaUser" value="@user.MaUser" />
             </div>
+            <br />
             <div class="form-group">
                 <label>Tổng tiền</label>
-                <input type="text" name="TongTien" value="@ViewBag.Total" />
+                <input style="margin-left:40px" type="text" name="TongTien" value="@ViewBag.Total" />
             </div>
+            <br />
             <div class="form-group">
                 <label>Ngày tạo</label>
-                <input type="text" name="NgayTaoHoaDon" required class="form-control" value="@DateTime.Now" />
+                <input style="margin-left:60px" type="text" name="NgayTaoHoaDon" required class="form-control" value="@DateTime.Now" />
                 <div>
-                    <input type="submit" value="Xác nhận" />
+                    <input style="margin-left:20px" type="submit" value="Xác nhận" />
                 </div>
             </div>
+            <br />
             <a class=" btn btn-success btn-sm" href="@Url.Action("Index2", "NhanVien")">
-                Tiep tuc mua hang
+                Tiếp tục mua hàng
             </a>
             <a class=" btn btn-success btn-sm" href="@Url.Action("DeleteCart", "Dodungs")">
-                Xoa gio hang
+                Xóa giỏ hàng
             </a>
-            }
-        </div>
+        }
+    </div>
 }
 else
 {

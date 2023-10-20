@@ -60,6 +60,16 @@
     </div>
     <br />
     <div class="form-group">
+        @Html.LabelFor(model => model.activate, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-2">
+            <div class="checkbox nav-link disabled aria-disabled=true">
+                @Html.EditorFor(model => model.activate)
+                @Html.ValidationMessageFor(model => model.activate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
             <input type="submit" value="Save" class="btn btn-default" style="background-color:greenyellow" />
         </div>

@@ -27,6 +27,9 @@
         <th>
             @Html.DisplayNameFor(model => model.MatKhau)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.activate)
+        </th>
         <th></th>
     </tr>
 
@@ -47,6 +50,9 @@
         <td>
             @Html.DisplayFor(modelItem => item.MatKhau)
         </td>
+        <th>
+            @Html.DisplayFor(model => item.activate)
+        </th>
         <td class="btn btn-info" style="margin:30px 0 20px 5px">
             @Html.ActionLink("Edit", "Edit_Admin", new { id = item.MaUser })
         </td>

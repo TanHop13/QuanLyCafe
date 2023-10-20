@@ -9,6 +9,12 @@ namespace Doan.Models
     [Table("CaLamViec")]
     public partial class CaLamViec
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public CaLamViec()
+        {
+            NgayLams = new HashSet<NgayLam>();
+        }
+
         [Key]
         [StringLength(10)]
         public string MaCLV { get; set; }
@@ -21,10 +27,7 @@ namespace Doan.Models
 
         public TimeSpan? GioKT { get; set; }
 
-        [Required]
-        [StringLength(10)]
-        public string MaUser { get; set; }
-
-        public virtual User User { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<NgayLam> NgayLams { get; set; }
     }
 }

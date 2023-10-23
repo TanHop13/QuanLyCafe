@@ -287,7 +287,23 @@ namespace Doan.Controllers
             
             db.SaveChanges();
 
-            return RedirectToAction("Payment");
+            var cart = Session[CartSession];
+            var list = new List<DoDung>();
+            if (cart != null)
+            {
+                list = (List<DoDung>)cart;
+                if (list != null)
+                {
+                    foreach (var item in list)
+                    {
+                        var doDung = db.DoDungs.FirstOrDefault(p => p.MaDD == item.MaDD);
+                        doDung.SoLuong = doDung.SoLuong - item.SoLuong;
+                        db.SaveChanges();
+                    }
+                }
+            }
+            Session[CartSession] = null;
+            return RedirectToAction("Index_Cart");
         }
 
       

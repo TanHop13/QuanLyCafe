@@ -53,6 +53,32 @@
             </div>
         </div>
     </div>
+<<<<<<< HEAD
+=======
+
+    <div class="form-group" style=" padding-top:10px; padding-bottom:10px">
+        @Html.LabelFor(model => model.MaUser, "Tên nhân viên", htmlAttributes: new { @class = "control-label" })
+        <div class="col-md-10" style="left:5px">
+            @Html.DropDownList("MaUser", null, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.MaUser, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group" style=" padding-top:10px; padding-bottom:10px">
+        <label>Ngày làm việc</label>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.NgayLamViec, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.NgayLamViec, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10" style="background-color: mediumspringgreen; max-width:100px; margin-top:10px; margin-left:400px">
+            <input type="submit" value="Create" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+>>>>>>> 1eeee4a0a57b2a861835d298701bdc94fe0e4991
 }
 
 <div>

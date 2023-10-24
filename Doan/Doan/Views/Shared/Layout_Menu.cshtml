@@ -33,7 +33,7 @@
 </head>
 <body>
     @{var user = Session["User"] as Doan.Models.User;}
-    <nav class="navbar navbar-expand-lg" style="background-color: red">
+    <nav class="navbar navbar-expand-lg" style="background-color: orangered">
         <div class="container-fluid">
             <a href="@Url.Action("Edit_Admin", "Users", new {id = @user.MaUser})" , class="navbar-brand">Admin</a>
             <a class="navbar-brand" href="~/DoDungs/Index2">Thực đơn</a>

@@ -1,5 +1,2 @@
 # QuanLyCafe
-Sử dụng SQL Server
-Sau khi pull -> Mở file database.sql để tạo database
-Tài khoản admin: NV00, mật khẩu: 123
-Tài khoản nhân viên: NV03, mật khẩu: 123
+Sử dụng SQL Server, sau khi pull -> Mở file database.sql để tạo database. Khi mở file code, vô Web.config -> tới dòng code "connectionString="data source=...\SQLEXPRESS;". Ở đây thay "...\SQLEXPRESS" bằng tên Server của máy tương ứng

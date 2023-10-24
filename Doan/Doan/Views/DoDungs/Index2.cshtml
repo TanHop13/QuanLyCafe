@@ -12,23 +12,22 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.LoaiDoDung.TenLoai)
+            <h6>Tên loại</h6>
         </th>
         <th>
             @*@Html.DisplayNameFor(model => model.TenDD)*@
-            @Html.ActionLink("Ten san pham", "Index2", new { Sort = ViewBag.SortByName })
+            @Html.ActionLink("Tên sản phẩm", "Index2", new { Sort = ViewBag.SortByName })
         </th>
         <th>
             @*@Html.DisplayNameFor(model => model.Gia)*@
-            @Html.ActionLink("Gia", "Index2", new { Sort = ViewBag.SortByPrice })
+            @Html.ActionLink("Giá", "Index2", new { Sort = ViewBag.SortByPrice })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.SoLuong)
+            <h6>Số Lượng</h6>
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.HinhDD)
+            <h6>Hình đồ dùng</h6>
         </th>
-        <th></th>
     </tr>
 
     @foreach (var item in Model)

@@ -16,3 +16,5 @@ Sau khi pull code về máy, trong folder sẽ có một file database.sql -> ch
 ![image](https://github.com/TanHop13/QuanLyCafe/assets/116043498/aa8e1ec4-5c3e-4cb6-b7ff-2be4a95ea774)
 
 4. Chạy file code
+Mở file code -> Mở mục Web.config -> Sửa vị trị ba chấm "data source= ..." bằng tên SQL Server của máy tương ứng
+![image](https://github.com/TanHop13/QuanLyCafe/assets/116043498/8db99934-d05d-4bb1-bcc5-aec1faacc5cc)

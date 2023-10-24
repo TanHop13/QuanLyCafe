@@ -39,14 +39,9 @@
             <td>
                 @Html.DisplayFor(modelItem => item.NgayLamViec)
             </td>
-            <td class="btn btn-info" style="margin-left: 20px; margin-right: 20px; margin-top: 5px; margin-bottom: 5px">
-                @Html.ActionLink("Edit", "Edit_NhanVien", new { id = item.MaNL })
-            </td>
+
             <td class="btn btn-warning" style="margin-left:20px; margin-right:20px; margin-top:5px; margin-bottom:5px">
                 @Html.ActionLink("Details", "Details_NhanVien", new { id = item.MaNL })
-            </td>
-            <td class="btn btn-danger" style="margin-left: 20px; margin-right: 0; margin-top: 5px; margin-bottom: 5px">
-                @Html.ActionLink("Delete", "Delete_NhanVien", new { id = item.MaNL })
             </td>
         </tr>
     }

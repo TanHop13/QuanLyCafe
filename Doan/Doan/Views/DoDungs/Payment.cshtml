@@ -10,12 +10,12 @@
 {
     <table class="table">
         <tr>
-            <td>Ma</td>
-            <td>Ten</td>
-            <td>Anh</td>
-            <td>SoLuong</td>
-            <td>DonGia</td>
-            <td>ThanhTien</td>
+            <td>Mã</td>
+            <td>Tên</td>
+            <td>Ảnh</td>
+            <td>Số Lượng</td>
+            <td>Đơn giá</td>
+            <td>Thành tiền</td>
         </tr>
 
         @foreach (var item in Model)
@@ -42,7 +42,7 @@
                         @(item.Gia.GetValueOrDefault(0) * item.SoLuong)
                     </td>
                     <td>
-                        <a href="@Url.Action("DeleteItem", "Dodungs", new { id = item.MaDD })">Xoa</a>
+                        <a href="@Url.Action("DeleteItem", "Dodungs", new { id = item.MaDD })">Xóa</a>
                     </td>
                     <td>
                         <input type="submit" value="Cập nhật" />
@@ -96,5 +96,5 @@
 }
 else
 {
-    <span class="alert alert-danger">Chua co san pham trong gio hang</span>
+    <span class="alert alert-danger">Chưa có sản phẩm trong giỏ hàng</span>
 }

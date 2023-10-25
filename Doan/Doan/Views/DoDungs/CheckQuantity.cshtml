@@ -10,7 +10,6 @@
         <tr>
             <td>Mã</td>
             <td>Tên</td>
-            <td>Ảnh</td>
             <td>Số Lượng</td>
             <td>Đơn giá</td>
             <td>Thành tiền</td>
@@ -27,9 +26,7 @@
                     <td>
                         @Html.DisplayFor(modelItem => item.TenDD)
                     </td>
-                    <td style="max-width: 50px; height: auto">
-                        @Html.Image("../" + item.HinhDD, "alt", "100")
-                    </td>
+                   
                     <td>
                         <input type="text" name="SoLuong" id="SoLuong" value="@item.SoLuong" />
                     </td>
@@ -54,14 +51,14 @@
         }
     </table>
     <a class=" btn btn-success btn-sm" href="@Url.Action("Index2","NhanVien")">
-       Tiếp tục mua hàng
+        Tiep tuc mua hang
     </a>
     <a class=" btn btn-success btn-sm" href="@Url.Action("DeleteCart","Dodungs")">
-       Xóa giỏ hàng
+        Xoa gio hang
     </a>
 
     <a class=" btn btn-success btn-sm" href="@Url.Action("Payment","Dodungs")">
-       Thanh toán
+        Thanh Toan
     </a>
 }
 else

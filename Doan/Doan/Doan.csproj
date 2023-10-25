@@ -314,6 +314,7 @@
     <Content Include="Views\NgayLams\Details_NhanVien.cshtml" />
     <Content Include="Views\NgayLams\Edit_NhanVien.cshtml" />
     <Content Include="Views\NgayLams\Delete_NhanVien.cshtml" />
+    <Content Include="Views\DoDungs\CheckQuantity.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

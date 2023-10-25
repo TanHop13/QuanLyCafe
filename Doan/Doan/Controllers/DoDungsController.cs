@@ -306,7 +306,31 @@ namespace Doan.Controllers
             return RedirectToAction("Index_Cart");
         }
 
-      
+        public ActionResult CheckQuantity(string id, int SoLuong)
+        {
+            var doDung = db.DoDungs.FirstOrDefault(p => p.MaDD == id);
+
+            if (SoLuong <= 0)
+            {
+                ViewBag.Message = "Số lượng phải lớn hơn 0.";
+            }
+            else if (SoLuong > doDung.SoLuong)
+            {
+                ViewBag.Message = "Không đủ sản phẩm, sản phẩm chỉ còn:" + doDung.SoLuong;
+            }
+            else
+            {
+                ViewBag.Message = "Số lượng hợp lệ.";
+            }
+            var cart = Session[CartSession];
+            var list = new List<DoDung>();
+            if (cart != null)
+            {
+                list = (List<DoDung>)cart;
+            }
+            return View(list);
+        }
+
     }
 }
 
